@@ -1,0 +1,32 @@
+<div id="navbar" class=" ">
+
+    <div class="navbar-container navbar-default" id="navbar-container">
+        <div class="header_top">
+            <img src="../img/header.png" class="mr10" style="width:20px;" /><span class="mr15" id="userName"></span><span class="mr15">采集调度员</span><span id="loginOut" class="mr15 cp">退出</span>
+        </div>
+        <div style="height:50px;line-height:40px;">
+            <div class=" navbar_logo">
+                   <img src="../img/logo.png" class="vm" style="width:30px"/>
+                  <span class="vm header_title">蜘点物流中心管理系统</span>
+            </div>
+
+            <!-- #section:basics/navbar.dropdown -->
+            <div class="pull-right" role="navigation">
+                <!--<div>-->
+                    <!--<span class="mr15">张三</span><span class="mr15">采集调度员</span><span class="mr15">退出</span>-->
+                <!--</div>-->
+                <div>
+                    <ul class="header_menu_ul">
+                        <li  id="confirm_order_li"><span>抢单确认</span></li>
+                        <li id="send_order_li"><span >物流发单</span></li>
+                        <li id="search_order_li"><span >全部订单</span></li>
+                        <!--<li id="control_center_li"><span >调度中心</span></li>-->
+                        <li id="company_manager_li">承运公司管理</li>
+                    </ul>
+                </div>
+            </div>
+         </div>
+
+        <!-- /section:basics/navbar.dropdown -->
+</div><!-- /.navbar-container -->
+</div>

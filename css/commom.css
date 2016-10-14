@@ -1,0 +1,284 @@
+/*margin padding*/
+.ml0{margin-left:0px;}
+.ml5{margin-left:5px;}
+.ml10{margin-left:10px;}
+.ml15{margin-left:15px;}
+.ml20{margin-left:20px;}
+.ml25{margin-left:25px;}
+.ml30{margin-left:30px;}
+.ml40{margin-left:40px;}
+
+.mr0{margin-right:0px;}
+.mr5{margin-right:5px;}
+.mr10{margin-right:10px;}
+.mr15{margin-right:15px;}
+.mr12{margin-right:12px;}
+.mr20{margin-right:20px;}
+.mr40{margin-right:40px;}
+
+.mb0{margin-bottom: 0px;}
+.mb5{margin-bottom: 5px;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.mb20{margin-bottom:20px;}
+
+.mt0{ margin-top:0px;}
+.mt5{ margin-top:5px;}
+.mt8{margin-top:8px;}
+.mt10{margin-top:10px;}
+.mt13{margin-top:13px;}
+.mt15{margin-top:15px;}
+.mt20{margin-top:20px;}
+.mt25{margin-top:25px;}
+.mt30{margin-top:30px;}
+.mt40{margin-top:40px;}
+.mt50{margin-top:50px;}
+
+
+.pr5{padding-right:5px;}
+.pr10{padding-right:10px;}
+.pr15{padding-right:15px;}
+.pr20{padding-right:20px;}
+.pr30{padding-right:30px;}
+
+
+.pt0{padding-top:0px;}
+.pt5{padding-top:5px;}
+.pt10{padding-top:10px;}
+.pt15{padding-top:15px;}
+.pt20{padding-top:20px;}
+
+.pb0{padding-bottom:0px;}
+.pb5{padding-bottom:5px;}
+.pb10{padding-bottom:10px;}
+.pb15{padding-bottom:15px;}
+.pb20{padding-bottom:20px;}
+.pb30{padding-bottom:30px;}
+
+.pl0{padding-left:0px;}
+.pl5{padding-left:5px;}
+.pl10{padding-left:10px;}
+.pl12{padding-left:12px;}
+.pl15{padding-left:15px;}
+.pl20{padding-left:20px;}
+.pt25{padding-top:25px;}
+
+
+.mid{margin:0 auto}
+/*width*/
+.wid100{width:100%;}
+/*display*/
+.hide{display:none;}
+.show{display:block;}
+.inline{display:inline;}
+.inlineB{display:inline-block;}
+.hidden{overflow:hidden;}
+.scroll{overflow:scroll;}
+/*float*/
+.fleft{float:left;}
+.fright{float:right;}
+.clear{clear: both;display: block;font-size: 0;height: 0;line-height: 0;overflow: hidden;}
+.clear_fixed:after{clear: both;content: ".";display: block;height: 0;visibility: hidden;}
+.zoom{ overflow:hidden;_zoom:1;}
+
+.t_ellipsis{
+    display: block;
+    /*width:30%;*//*对宽度的定义,根据情况修改*/
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*font*/
+
+.tc{text-align:center;}
+.tl{text-align:left;}
+.tr{text-align:right;}
+.vt{vertical-align:top;}
+.vm{vertical-align:middle;}
+.vb{vertical-align:bottom;}
+.italic{ font-style:italic}
+.normal{font-weight:normal;}
+.font12{font-size:12px;}
+.font14{font-size:14px;}
+.font18{font-size:18px;}
+.font16{font-size:16px;}
+.font20{font-size:20px;}
+.font24{ font-size:20px;}
+.font26{ font-size:26px;}
+.font30{font-size:30px;}
+.bold{font-weight:bold;}
+/*color*/
+.mainblue{color:#438eb9}
+.cp{cursor: pointer;}
+
+.zhidian_logo{
+    width:30px;
+    height:30px;
+    background: url(../img/logo.png);
+    background-size:cover;
+    display:inline-block;
+    vertical-align: middle;
+}
+.ware_font{
+    height:10px;
+    line-height:30px;
+    text-align: left;
+    font-size:12px;
+
+    font-family: "Microsoft YaHei", 微软雅黑;
+    margin-top:-20px;
+    margin-bottom:20px;
+    padding-left:5px;
+    color:#ff0000;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset!important;
+}/*修改input点击后的背景颜色*/
+input:focus {
+    /*outline: none!important;*/
+    border-color: #86c3f4!important;
+    box-shadow: 0 0 20px #86c3f4!important;
+}
+/*.all_zcform{  min-width:780px;overflow:scroll;}*/
+.main-content:after,.page-content:after{display:block; content:"clear"; height:0; clear:both; overflow:hidden; visibility:hidden;}
+/*.page-header:after{display:block; content:"clear"; height:0; clear:both; overflow:hidden; visibility:hidden;}*/
+.zc_date{float:left;width:80%;}
+.zc_date input{width:35%;}
+.zc_mon {width:20%;float:left;}
+
+.zc_state{width:30%;float:left;}
+.zc_state select{width:60%;}
+
+/*创建订单*/
+/*.create_order{padding:10px;}*/
+/*.create_a{margin-bottom:20px;vertical-align: middle;}*/
+/*.create_a label{margin-top:5px;}*/
+/*.table>tbody> .order_td>td{line-height:30px}*/
+/*.input_st{height:30px;max-width:60px;}*/
+/*.order_clear:after{display:block; content:"clear"; height:0; clear:both; overflow:hidden; visibility:hidden;}*/
+
+/*-------用户信息修改 开始-------*/
+.left_span {
+    display: inline-block;
+    width:100px;
+    text-align: right;
+    margin-right:20px;
+}
+.role_ul {
+    list-style-type: none;
+    display: inline-block;
+}
+/*-------用户信息修改 结束------*/
+.modal_style{
+    border-radius: 10px!important;
+}
+.modal_style2{
+    border-bottom-right-radius: 10px!important;
+    border-bottom-left-radius: 10px!important;
+}
+.detail_Test .detail_xi {
+    font-size:14px;
+    text-align: center;
+       margin:50px 15px 20px;
+}
+.detail_Test .detail_xi tr{
+    height:35px;
+}
+.detail_Test .detail_xi th{
+    border:1px solid #dcdcdc;
+    text-align: center;
+}
+.detail_Test .detail_xi td{
+    border:1px solid #dcdcdc;
+
+}
+.detail_Test .detail_xi .clear_fixed:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.detail_Test .detail_num{
+    font-size:14px;
+    text-align: center;
+    margin:10px 15px;
+}
+
+
+.user_info{
+    list-style:none;
+    border: 1px solid #dcdcdc;
+    width:450px;
+    margin:0 auto;
+}
+.user_info li{
+    height:51px;
+    min-height:51px;
+    line-height: 51px;
+    font-size:15px;
+    color:#555;
+    border-bottom: 1px solid #dcdcdc;
+    /*padding:10px 0px;*/
+}
+.user_info li:last-child{
+    border-bottom:none;
+}
+.user_info li i{
+    width:18px;
+    text-align: center;
+
+}
+.user_info li span{
+    text-align: left;
+}
+.user_info li .qx_user p{
+    line-height: 20px;
+}
+.weclome_img {
+    position: absolute;
+    width: 800px;
+    left: 50%;
+    margin-left: -400px;
+    height: 335px;
+    top: 25%;
+    z-index:2;
+}
+
+#top_nav{
+    background: #f1f2f6;
+    font-family: 微软雅黑;
+}
+/*==========以下部分是Validform必须的===========*/
+.Validform_checktip{
+    margin-left:8px;
+    line-height:20px;
+    height:20px;
+    overflow:hidden;
+    color:#999;
+    font-size:12px;
+}
+.Validform_right{
+    color:#71b83d;
+    padding-left:20px;
+    background:url(../images/right.png) no-repeat left center;
+}
+.Validform_wrong{
+    color:red;
+    padding-left:20px;
+    white-space:nowrap;
+    background:url(../images/error.png) no-repeat left center;
+}
+.Validform_loading{
+    padding-left:20px;
+    background:url(../images/onLoad.gif) no-repeat left center;
+}
+.Validform_error{
+    background-color:#ffe7e7;
+}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');}
+#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#000;}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#cc0;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #000; border-top:none; text-align:left;}
