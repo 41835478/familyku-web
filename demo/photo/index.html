@@ -1,0 +1,1107 @@
+
+<!DOCTYPE HTML>
+<html style="height: 100%;">
+<head>
+    <meta charset="utf-8">
+    <title>我的音乐相册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+
+    <link rel="stylesheet" href="css/keditor.css?v=09081141">
+    <link rel="stylesheet" href="css/text_animate.css?v=09081141">
+
+    <script src="js/zepto.min.js?v=12101011"></script>
+
+    <script src="js/vector.js"></script>
+    <script type="text/javascript" src="js/scaffold.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/merge.css">
+    <script type="text/javascript">
+        var enterid = "4824991867932392093ou0OxwhJU-WbWz9pSB37a635EiDs";
+        var initIlike = 0;
+    </script>
+</head>
+<body>
+<script type="text/javascript">
+    var qiniuImgHost = "http://7xueb1.com1.z0.glb.clouddn.com";
+    var resMoliStaticDomain = "http://7xueb1.com1.z0.glb.clouddn.com";
+    document.ontouchmove = function(e)
+    {
+        e.preventDefault();
+    }
+    var touchStartMusic = function () {
+        music_check_timeout = undefined;
+        function check_Music() {
+            // 阻塞执行 500 ms 执行一次
+            if (musicView != undefined && musicView.audioPlayer != undefined && musicView.audioPlayer.inited == true) {
+                if (music_check_timeout != undefined) {
+                    clearTimeout(music_check_timeout);
+                }
+                musicView.audioPlayer.isPlay = false;
+                musicView.audioPlayer._play();
+            } else {
+                music_check_timeout = setTimeout(check_Music, 500);
+            }
+        }
+        check_Music();
+        document.removeEventListener('touchstart', touchStartMusic);
+    }
+    document.addEventListener('touchstart', touchStartMusic);
+    $(function(){
+        // 初始化 传入dom id
+        var victor = new Victor("moxuanloading", "outmoxuanloading");
+        var theme = [
+            ["#002c4a", "#005584"],
+            ["#35ac03", "#3f4303"],
+            ["#ac0908", "#cd5726"],
+            ["#18bbff", "#00486b"]
+        ]
+        var initInterval = setInterval(function(){
+            victor(theme[Math.floor(Math.random()*3)]).set();
+        },1000)
+    });
+    function addEgret() {
+        var height = window.innerHeight;
+        var weight = window.innerWidth;
+        var per = height / weight;
+        var t = "";
+        if (per <= 4 / 3) {
+            t = "showAll";
+        } else {
+            t = "noBorder";
+        }
+        setCookie("scaleMode", t);
+    }
+    addEgret();
+
+
+    //写cookies
+    function setCookie(name, value) {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+    }
+
+    //读取cookies
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+        if (arr = document.cookie.match(reg))
+
+            return unescape(arr[2]);
+        else
+            return null;
+    }
+
+    //删除cookies
+    function delCookie(name) {
+        var exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        var cval = getCookie(name);
+        if (cval != null)
+            document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+    }
+</script>
+
+<!-- 2.5 -->
+<div style="margin: auto; width: 100%; height: 100%;" class="egret-player" id="egret-player"
+     data-entry-class="Main"
+     data-orientation="auto"
+     data-scale-mode="noBorder"
+     data-resolution-mode="retina"
+     data-frame-rate="60"
+     data-content-width="640"
+     data-content-height="1008"
+     data-show-paint-rect="false"
+     data-multi-fingered="2"
+     data-show-fps="false" data-show-log="false"
+     data-log-filter="" data-show-fps-style="x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9">
+    <div class='lyricBar'>
+        <ul>
+        </ul>
+    </div>
+    <div class='TextView'>
+    </div>
+    <input type="hidden" value="" id="per" />
+</div>
+
+<div class="musicWrap">
+    <a id="AudioBtn" href="javascript:;"></a>
+</div>
+
+<script>
+    function ToEditProduction() {
+
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        var ua = window.navigator.userAgent.toLowerCase();
+        // 是否为移动端浏览器
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            // 移动端浏览器
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                // 微信
+                window.location.href = '';
+            } else {
+                // android app 接口
+                if (typeof android != "undefined") {
+                    if (typeof android.closeWebView != "undefined") {
+                        android.closeWebView();
+                        return;
+                    }
+                }
+                // 非android app,且非微信
+                window.location.href =  '';
+            }
+        } else {
+            // pc端浏览器
+            window.location.href =  '';
+        }
+    }
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<div id="moxuanloading">
+    <div id="outmoxuanloading"></div>
+    <div class="moxuanloadingsk-spinner moxuanloadingsk-spinner-pulse"></div>
+    <div class="loadingNum">
+        <p id='loadingText'>加载中</p>
+        <p id='loadingPro'>5%</p>
+    </div>
+</div>
+<div id="MusicView">
+    <ul>
+        <div class='musicType'>
+            <div class='all'>
+                <span class='all'>全部</span>
+                <span class='sweet'>甜蜜</span>
+                <span class='quiet'>安静</span>
+                <span class='relax'>轻松</span>
+                <span class='lonely'>寂寞</span>
+                <span class='happy'>开心</span>
+                <div class="clrBox"></div>
+            </div>
+        </div>
+        <div id='MusicList' class='all'>
+            <li class='lonely'>
+                <div id="MusicItem41" class="musicItem">
+                    <div class="musicItemTitle">虫儿飞 - 杨烁 </div>
+                    <div class="musicItemAfter">
+                        <div class="musicStatus" data-info="http://ws.stream.qqmusic.qq.com/C100004PD71W0q0x2K.m4a?fromtag=0" data-lyric="lyric/music_16.lrc">
+                        </div>
+                        <span></span>
+                        <div class="clrBox"></div>
+                    </div>
+                    <div class="clrBox"></div>
+                </div>
+            </li>
+        </div>
+    </ul>
+    <nav>
+        <a href="javascript:;" id="MusicCancel"></a>
+        <span></span>
+        <a href="javascript:;" id="MusicSelect"></a>
+    </nav>
+</div>
+<div style="display: none;" id="open_id"></div>
+<a href="http://mp.weixin.qq.com/s?__biz=MzI2NjM5NzExNQ==&mid=2247483758&idx=4&sn=3ec008bb1d672d5f6aaae2f164d9682f#rd" class="make_btnto">免费制作</a>
+<script type="text/template" id="tmple-comment">  <div class='comm_float_wrapper' data-ty='0' data-id='{id}'>    <div class="comm_float" >      <span class="comm_portrait" style="{img}"></span>      <span class="comm_content">{comment}</span>    </div>  </div></script><script type="text/template" id="tmple-comment-scroll">  <div class="comm_comment {deletable}" data-id={id} data-uid="{uid}">    <span class="comm_expand_portrait" style="{img}" ></span>    <div class='comm_expand_like_box {liked}'>      <span class='comm_expand_like_num'>{likenum}</span>       <a href='javascript:;' class='comm_expand_like'></a>    </div>    <div class='comm_expand_box'>      <span class="comm_expand_name">{name}</span>      <span class="comm_expand_time">{time}</span>    </div>    <span class="comm_expand_content">{content}</span>  </div></script>
+<script src="js/common.js?v=02031502"></script>
+<script src="js/music.js?v=02031502"></script>
+<script>
+    var staticUrl = 'http://7xueb1.com1.z0.glb.clouddn.com/publicres/';
+</script>
+<script src="js/text_config.js?v=02031502"></script>
+<script>
+
+    function loadjs(e, t) {
+        var i = document.createElement("script");
+        i.setAttribute("type", "text/javascript"), i.setAttribute("src", e), document.getElementsByTagName("body")[0].appendChild(i), i.onload = function () {
+            t && t()
+        }
+    }
+    setTimeout(function () {
+        var e = '<section class="comment_page">  <div class=\'comm_top_box\'>    <div class="comm_inputCont">      <input class="comm_input" type=\'text\' placeholder="说点什么吧~">      <a class="comm_inputBtn js-send" href="javascript:;"></a>    </div>     <div class=\'comm_tab_box\'>        <a href="javascript:;" class="comm_tab_float"></a>        <a href="javascript:;" class="comm_tab_list"></a>        <span class=\'comm_tab_commentnum\'></span>        <span class=\'comm_tab_likenum\'></span>     </div>   </div>  <div class=\'comm_box\'>    <div class=\'comm_float_box\'>      <div class=\'comm_float_mask\'></div>    </div>    <div class=\'comm_scroll_outer\'>      <div class=\'comm_scroll scrollable_betal\'></div>    </div>  </div>  <div class=\'comm_bottom_box\'>    <div class=\'comm_bottom_mask\'></div>    <a href=\'javascript:;\' class=\'comm_music\'></a>    <a href=\'javascript:;\' class=\'comm_like\'>      <span class=\'comm_like_num ani\'></span>    </a>    <a href=\'javascript:;\' class=\'comm_share\'></a>    <a href="http://mp.weixin.qq.com/s?__biz=MzI2NjM5NzExNQ==&mid=2247483758&idx=4&sn=3ec008bb1d672d5f6aaae2f164d9682f#rd" class=\'comm_doit\'>制作</a>    <a href=\'javascript:;\' class=\'comm_close\'></a>  </div>  <!--<canvas id=\'comm_canvas\'>  </canvas>--></section><canvas id=\'comm_canvas\'></canvas><div id=\'comm_open_btn\'>  <span class="like_btn">        <span class=\'comm_open_like\'></span>        <span class=\'comm_open_like_num\'></span>  </span>  <span class=\'comm_open_box\'>    <span class=\'comm_open_cm\'></span>    <span class=\'comm_open_cm_num\'></span>  </span></div><div class="comm_tip"></div><div class="dialog alert">    <div class="dialog_bg"></div>    <div class="dialog_container">        <div class="dialog_content"></div>        <div class="dialog_btns">    <span class="alert_cancel" style="  border-right: 1px solid #ccc;">取消</span>            <span class="alert_confirm">好</span>        </div>    </div></div><section class="camera_content">    <div class="camera_bg"></div>    <div class="camera_bg_frame">        <div class="camera_frame_contain">            <div class="camera_bg_img"></div>            <a href="javascript:;" class="get_welfare" style="display:none;"></a>            <p style="text-align: center;width: 100%;font-size: 13px;line-height: 25px;color: #333;display:none;" class="text_show1">(回复“1”即可)</p>            <textarea readonly="readonly" class="paipaipai_in"></textarea>            <img src="" class="paipaipai_in"/>            <!--<p class="arrow_icon"><span>"长按二维码，领取</span><span class="free">免费</span><span>拍摄名额"</span></p>-->        </div>    </div>    <a class="close_btn"></a></section><!-- 引导分享 --><div class=\'comm_share_mask\'>  <div class=\'comm_share_tip\'></div></div>';
+        $body = $("body"), $body.append(e), loadjs("js/commentv2.0.js", function () {
+            function e(e) {
+                e.preventDefault(), e.stopPropagation()
+                //, iscare || isQQ ? window.location.href = WEBPATH + "index.aspx?publicid=" + PublicId + "&enterid=" + enterid + "&action=" + activity_name + "&edit=✓" : $(".qrcode_save_edit").addClass("qrcode_editshow")
+            }
+            var t = new CView,
+                    i = utils.isApp && "2.0" === utils.appVersion;
+            t.oldShow = t.show, t.show = function () {
+                i ? callAppHandler(APPHANDLER.SHOWCOMMET) : t.oldShow.apply(t, arguments)
+            }, window.cView = t,  $body.on("touchend", "#edit-btn-author", function (t) {
+                e(t)
+            }),
+                    $(".comm_open_box").click(function(e){
+                        t.show(),
+                                e.stopPropagation(), e.preventDefault();
+                    });
+            //$(document).on("click", ".comm_open_box", function (e) {
+            //    alert(1);
+            //    t.show(),
+            //    e.stopPropagation(), e.preventDefault();
+            //});
+        })
+    }, 1e3)
+
+    var share_url = "http://mp.weixin.qq.com/s?__biz=MzI2NjM5NzExNQ==&mid=2247483758&idx=4&sn=3ec008bb1d672d5f6aaae2f164d9682f#rd";
+    var mvCfg = {
+        cid: '4824991867932392093ou0OxwhJU-WbWz9pSB37a635EiDs',
+        pics: ["http://7xueb1.com1.z0.glb.clouddn.com/5121450893826833788?imageMogr2/quality/70/rotate/0","http://7xueb1.com1.z0.glb.clouddn.com/5554761907301284851?imageMogr2/quality/70/rotate/0","http://7xueb1.com1.z0.glb.clouddn.com/5581559858463974921?imageMogr2/quality/70/rotate/0",],
+        music: parseInt(41),
+        tp:'k_zhongqiu',
+        title: "我的音乐相册",
+        lyric: parseInt(1),
+        cover: parseInt(0),
+        coverTip: parseInt(0),
+        picsRotate: [0,0,0,],
+        texts: ["113"],
+    };
+    var canEdit = false;
+
+    // 文本转义
+    (function () {
+        for (var i = 0, len = mvCfg.texts.length; i < len; ++i) {
+            mvCfg.texts[i] = decodeEscapeHtml(mvCfg.texts[i]);
+        }
+    })();
+
+    function initFunc() {
+        lyricPlayer.init();
+        showTip();
+    }
+
+    function showTip() {
+    }
+
+
+
+</script>
+
+
+
+<script src="js/play.js?v=02031502"></script>
+
+<script>
+
+    function init_viewport()
+    {
+        if(/Android (\d+\.\d+)/.test(navigator.userAgent))
+        {
+            var version = parseFloat(RegExp.$1);
+            if(version>2.3)
+            {
+                var phoneScale = parseInt(window.screen.width)/500;
+                document.write('<meta name="viewport" content="width=500, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+            }
+            else
+            {
+                document.write('<meta name="viewport" content="width=500, target-densitydpi=device-dpi">');
+            }
+        }
+        else if(navigator.userAgent.indexOf('iPhone') != -1)
+        {
+            var phoneScale = parseInt(window.screen.width)/500;
+            document.write('<meta name="viewport" content="width=500, height=750,initial-scale=' + phoneScale +', user-scalable=no" /> ');
+        }
+        else
+        {
+            document.write('<meta name="viewport" content="width=500, height=750,initial-scale=0.64" /> ');
+
+        }
+    }
+    init_viewport();
+    var slider_images_url = mvCfg.pics;
+    var e_desc = mvCfg.title;
+    var e_scene = mvCfg.tp.replace("k_","");
+
+    $('#moxuanloading').hide();
+    initFunc();
+    musicView.init();
+    if(typeof android != "undefined") {
+        if(typeof android.musicInit != "undefined") {
+            android.musicInit();
+        } else {
+            alert('no defined android.musicInit');
+        }
+    }
+    if(typeof musicPrepared != "undefined") {
+        musicPrepared({"load":"ok"});
+    }
+
+    textPlayer.start(mvCfg.texts,textCfg);
+
+    //卡哇部分函数
+    var module_inits = [];
+    function load_init_modules() {
+        for (var i = 0; i < module_inits.length; i++) {
+            module_inits[i]();
+        }
+    }
+    function call_me(fun) {
+        module_inits.push(fun);
+    }
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i) == 'micromessenger')
+    {
+        wx.ready(load_init_modules);
+    }
+    else
+    {
+        onload = load_init_modules;
+    }
+</script>
+<style type="text/css">
+
+    *
+    {
+        padding: 0px;
+        margin: 0px;
+        -webkit-box-sizing: border-box;
+    }
+
+    body
+    {
+        background-color: black;
+    }
+
+    #container
+    {
+        width: 500px;
+        height: 815px;
+        position: absolute;
+        overflow: hidden;
+    }
+    #pW9Jemt2f-an-obj-1 {
+        position:absolute;
+        -webkit-transform: translate3d(0px, 0px, 0px);
+        width: 500px;
+        height: 815px;
+        top:0; left:0;
+    }
+
+    #pW9Jemt2f-an-obj-2 {
+        position:absolute;
+        -webkit-transform: translate3d(58px, -141px, 0px);
+        width: 567px;
+        height: 567px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-2-0 2.681s 0s infinite linear both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-2-0 {
+        0% {
+            -webkit-transform: translate3d(58px, -141px, 0px) scale3d(0.5, 0.5, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        74.9196% {
+            -webkit-transform: translate3d(58px, -141px, 0px) scale3d(0.872, 0.872, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(58px, -141px, 0px) scale3d(1, 1, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-3 {
+        position:absolute;
+        -webkit-transform: translate3d(58px, -141px, 0px);
+        width: 567px;
+        height: 567px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-3-0 2.7931s 1.2328s infinite linear both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-3-0 {
+        0% {
+            -webkit-transform: translate3d(58px, -141px, 0px) scale3d(0.5, 0.5, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0;
+        }
+        4.0123% {
+            -webkit-transform: translate3d(58px, -141px, 0px) scale3d(0.5, 0.5, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        75.9259% {
+            -webkit-transform: translate3d(58px, -141px, 0px) scale3d(0.872, 0.872, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(58px, -141px, 0px) scale3d(1, 1, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-4 {
+        position:absolute;
+        -webkit-transform: translate3d(21px, 310px, 0px) scale3d(0.38, 0.4, 1);
+        width: 492px;
+        height: 336px;
+        top:0; left:0;
+        opacity: 0.5;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-4-0 2.5059s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-4-0 {
+        0% {
+            -webkit-transform: translate3d(21px, 310px, 0px) scale3d(0.38, 0.4, 1);
+            -webkit-animation-timing-function:linear;
+        }
+        100% {
+            -webkit-transform: translate3d(21px, 326px, 0px) scale3d(0.38, 0.4, 1);
+            -webkit-animation-timing-function:linear;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-5 {
+        position:absolute;
+        -webkit-transform: translate3d(-147px, 298px, 0px) scale3d(0.37, 0.32, 1);
+        width: 492px;
+        height: 336px;
+        top:0; left:0;
+        opacity: 0.3;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-5-0 2.9569s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-5-0 {
+        0% {
+            -webkit-transform: translate3d(-147px, 298px, 0px) scale3d(0.37, 0.32, 1);
+            -webkit-animation-timing-function:linear;
+        }
+        100% {
+            -webkit-transform: translate3d(-147px, 314px, 0px) scale3d(0.37, 0.32, 1);
+            -webkit-animation-timing-function:linear;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-6 {
+        position:absolute;
+        -webkit-transform: translate3d(38px, 441px, 0px);
+        width: 79px;
+        height: 130px;
+        top:0; left:0;
+        -webkit-transform-origin: 80.74% 97.25%;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-6-0 0.9828s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-6-0 {
+        0% {
+            -webkit-transform: translate3d(38px, 441px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            -webkit-animation-timing-function:linear;
+        }
+        100% {
+            -webkit-transform: translate3d(38px, 441px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(6.3deg);
+            -webkit-animation-timing-function:linear;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-7 {
+        position:absolute;
+        -webkit-transform: translate3d(149px, 445px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-3.6deg);
+        width: 27px;
+        height: 117px;
+        top:0; left:0;
+        -webkit-transform-origin: 50% 96.15%;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-7-0 1.3793s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-7-0 {
+        0% {
+            -webkit-transform: translate3d(149px, 445px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-3.6deg);
+            -webkit-animation-timing-function:linear;
+        }
+        100% {
+            -webkit-transform: translate3d(149px, 445px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0.6000000000000001deg);
+            -webkit-animation-timing-function:linear;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-8 {
+        position:absolute;
+        -webkit-transform: translate3d(78px, 481px, 0px);
+        width: 70px;
+        height: 80px;
+        top:0; left:0;
+        -webkit-transform-origin: 38.57% 91.25%;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-8-0 0.7414s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-8-0 {
+        0% {
+            -webkit-transform: translate3d(78px, 481px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            -webkit-animation-timing-function:linear;
+        }
+        100% {
+            -webkit-transform: translate3d(78px, 481px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(3deg);
+            -webkit-animation-timing-function:linear;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-9 {
+        position:absolute;
+        -webkit-transform: translate3d(0px, 495px, 0px);
+        width: 500px;
+        height: 106px;
+        top:0; left:0;
+    }
+
+    #pW9Jemt2f-an-obj-10 {
+        position:absolute;
+        -webkit-transform: translate3d(68px, 118px, 0px);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-10-0 0.4405s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-10-0 {
+        0% {
+            -webkit-transform: translate3d(68px, 118px, 0px);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(68px, 118px, 0px);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-11 {
+        position:absolute;
+        -webkit-transform: translate3d(109px, 59px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-25.3deg);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-11-0 0.5771s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-11-0 {
+        0% {
+            -webkit-transform: translate3d(109px, 59px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-25.3deg);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+        100% {
+            -webkit-transform: translate3d(109px, 59px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-25.3deg);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-12 {
+        position:absolute;
+        -webkit-transform: translate3d(107px, 164px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(39.6deg);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-12-0 0.3833s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-12-0 {
+        0% {
+            -webkit-transform: translate3d(107px, 164px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(39.6deg);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(107px, 164px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(39.6deg);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-13 {
+        position:absolute;
+        -webkit-transform: translate3d(39px, 41px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(27deg) scale3d(0.6, 0.6, 1);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-13-0 0.5374s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-13-0 {
+        0% {
+            -webkit-transform: translate3d(39px, 41px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(27deg) scale3d(0.6, 0.6, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(39px, 41px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(27deg) scale3d(0.6, 0.6, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-14 {
+        position:absolute;
+        -webkit-transform: translate3d(59px, 213px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-56.2deg) scale3d(0.6, 0.6, 1);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-14-0 0.4405s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-14-0 {
+        0% {
+            -webkit-transform: translate3d(59px, 213px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-56.2deg) scale3d(0.6, 0.6, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(59px, 213px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-56.2deg) scale3d(0.6, 0.6, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-15 {
+        position:absolute;
+        -webkit-transform: translate3d(4px, 162px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(77.1deg) scale3d(0.6, 0.6, 1);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-15-0 0.5771s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-15-0 {
+        0% {
+            -webkit-transform: translate3d(4px, 162px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(77.1deg) scale3d(0.6, 0.6, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+        100% {
+            -webkit-transform: translate3d(4px, 162px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(77.1deg) scale3d(0.6, 0.6, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-16 {
+        position:absolute;
+        -webkit-transform: translate3d(4px, 83px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(27deg) scale3d(0.3, 0.3, 1);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-16-0 0.5374s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-16-0 {
+        0% {
+            -webkit-transform: translate3d(4px, 83px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(27deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(4px, 83px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(27deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-17 {
+        position:absolute;
+        -webkit-transform: translate3d(120px, 205px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-29.6deg) scale3d(0.3, 0.3, 1);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-17-0 0.4405s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-17-0 {
+        0% {
+            -webkit-transform: translate3d(120px, 205px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-29.6deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+        100% {
+            -webkit-transform: translate3d(120px, 205px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-29.6deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-18 {
+        position:absolute;
+        -webkit-transform: translate3d(69px, 153px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-1.8deg) scale3d(0.3, 0.3, 1);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-18-0 0.5374s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-18-0 {
+        0% {
+            -webkit-transform: translate3d(69px, 153px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-1.8deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(69px, 153px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-1.8deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-19 {
+        position:absolute;
+        -webkit-transform: translate3d(84px, 50px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(6.1deg) scale3d(0.3, 0.3, 1);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-19-0 0.4405s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-19-0 {
+        0% {
+            -webkit-transform: translate3d(84px, 50px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(6.1deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+        100% {
+            -webkit-transform: translate3d(84px, 50px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(6.1deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-20 {
+        position:absolute;
+        -webkit-transform: translate3d(138px, 93px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-15.6deg) scale3d(0.3, 0.3, 1);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-20-0 0.5771s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-20-0 {
+        0% {
+            -webkit-transform: translate3d(138px, 93px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-15.6deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(138px, 93px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(-15.6deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+    }
+
+    #pW9Jemt2f-an-obj-21 {
+        position:absolute;
+        -webkit-transform: translate3d(41px, -6px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(79deg) scale3d(0.3, 0.3, 1);
+        width: 39px;
+        height: 35px;
+        top:0; left:0;
+        -webkit-animation: ani-pW9Jemt2f-an-obj-21-0 0.4405s 0s infinite linear alternate both ;
+    }
+
+    @-webkit-keyframes ani-pW9Jemt2f-an-obj-21-0 {
+        0% {
+            -webkit-transform: translate3d(41px, -6px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(79deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(41px, -6px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(79deg) scale3d(0.3, 0.3, 1);
+            -webkit-animation-timing-function:linear;
+            opacity: 0.4;
+        }
+    }
+    #page1,#page2
+    {
+        position: absolute;
+        top: 0px;
+        left: 81px;
+        -webkit-transform-origin: 50% 30%;
+        /*-webkit-animation: page1move 2s linear infinite alternate;*/
+    }
+    #page2
+    {
+        -webkit-transform: scale(0,1);
+    }
+    #page1
+    {
+        -webkit-transform: scale(1,1);
+    }
+    @-webkit-keyframes pageout
+    {
+        from   {-webkit-transform: scale(1,1);}
+        to     {-webkit-transform: scale(0,1);}
+    }
+
+    @-webkit-keyframes pagein
+    {
+        /*        0%   {-webkit-transform: scale(0,1);}
+                62%  {-webkit-transform: scale(1,1);}
+                68%  {-webkit-transform: scale(0.90,1);}
+                80% {-webkit-transform: scale(1,1);}
+                90% {-webkit-transform: scale(.95,1);}
+                100% {-webkit-transform: scale(1,1);}
+        */
+        from   {-webkit-transform: scale(0,1);}
+        to     {-webkit-transform: scale(1,1);}
+    }
+    #img1,#img2
+    {
+        position: absolute;
+    }
+    #pagebox
+    {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 500px;
+        height: 100px;
+        -webkit-transform-origin: 50% 0%;
+        -webkit-animation: pagebox 2s ease-in-out infinite alternate;
+
+    }
+    @-webkit-keyframes pagebox
+    {
+        from   {-webkit-transform: rotateZ(-2deg);}
+        to     {-webkit-transform: rotateZ(2deg);}
+    }
+    @-webkit-keyframes pagebox1
+    {
+        from   {-webkit-transform: rotateY(-20deg);}
+        to     {-webkit-transform: rotateY(20deg);}
+    }
+</style>
+
+<div id='container'>
+    <div id="pW9Jemt2f-an-obj-1"><div><img  height="815" width="500"  src="img/000.jpg"></div></div>
+    <div id="pW9Jemt2f-an-obj-2"><div><img  height="567" width="567"  src="img/01.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-3"><div><img  height="567" width="567"  src="img/01.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-4"><div><img  height="336" width="492"  src="img/06.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-5"><div><img  height="336" width="492"  src="img/06.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-6"><div><img  height="130" width="79"  src="img/02.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-7"><div><img  height="117" width="27"  src="img/03.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-8"><div><img  height="80" width="70"  src="img/04.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-9"><div><img  height="106" width="500"  src="img/05.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-10"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-11"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-12"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-13"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-14"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-15"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-16"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-17"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-18"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-19"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-20"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+    <div id="pW9Jemt2f-an-obj-21"><div><img  height="35" width="39"  src="img/07.png"></div></div>
+
+    <div id='pagebox'>
+        <div id='page1'>
+            <img src='img/ps.png'>
+            <div style='position:absolute;top:159px;left:16px;width:307px;height:292px;-webkit-mask:url(img/ps2.png);overflow:hidden;';>
+                <img id='img1'>
+            </div>
+        </div>
+        <div id='page2'>
+            <img src='img/ps.png'>
+            <div style='position:absolute;top:159px;left:16px;width:307px;height:292px;-webkit-mask:url(img/ps2.png);overflow:hidden;';>
+                <img id='img2'>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<script>
+    var image_size_width=[];
+    var image_size_height=[];
+    var image_ready_num=0;
+    var image_url_index=0;
+    var canshow = true;
+    var reshow = false;
+    var timeout1;
+    var timeout2;
+    var timeout3;
+    var timeout4;
+
+    var linenum = 18;
+    var havenum = 0;
+    function id(name)
+    {
+        return document.getElementById(name);
+    }
+
+    function load_images()
+    {
+        reshow = false;
+        image_size_width=[];
+        image_size_height=[];
+        Onload_imgs_url=[];
+        image_ready_num=0;
+        image_url_index=0;
+        linenum = 18;
+        havenum = 0;
+        id('page1').style.webkitAnimation = '';
+        id('page2').style.webkitAnimation = '';
+        // id('page1').style.display = 'none';
+        // id('page2').style.display = 'none';
+        clearTimeout(timeout1);
+        clearTimeout(timeout2);
+        clearTimeout(timeout3);
+        clearTimeout(timeout4);
+        canshow = true;
+
+
+        for(var i=0;i<slider_images_url.length;i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+        }
+    }
+
+    function img_onload1(event)
+    {
+        if(reshow == true)
+            return;
+
+        var img=event.target;
+        var index = img.index;
+
+        if(index<18)
+        {
+            Onload_imgs_url[index]=img.src;
+            image_size_width[index]=img.width;
+            image_size_height[index]=img.height;
+            havenum++;
+        }
+        else
+        {
+            Onload_imgs_url[linenum]=img.src;
+            image_size_width[linenum]=img.width;
+            image_size_height[linenum]=img.height;
+            linenum++;
+        }
+
+        if((havenum == 18 || havenum == slider_images_url.length) &&canshow==true)
+        {
+            begin_show();
+            canshow=false;
+        }
+    }
+
+    function image_onload(event)
+    {
+        if(reshow == true)
+            return;
+
+        var img=event.target;
+        var index = img.index;
+        console.log(index);
+        Onload_imgs_url[index]=img.src;
+        image_size_width[index]=img.width;
+        image_size_height[index]=img.height;
+        image_ready_num ++;
+
+        if(image_ready_num == slider_images_url.length)
+        {
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+            cut_image(image_url_index,1);
+            image_url_index++;
+            begin_show();
+        }
+    }
+    function begin_show()
+    {
+        if(reshow == true)
+            return;
+
+        id('page1').style.webkitAnimation = 'pageout 1s linear both';
+        timeout1 = setTimeout(function()
+        {
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+            cut_image(image_url_index,2);
+            image_url_index++;
+            id('page2').style.webkitAnimation = 'pagein 1s linear both';
+        },1000);
+
+
+        timeout2 = setTimeout(next_show,5000);
+    }
+    function next_show()
+    {
+        if(reshow == true)
+            return;
+
+        id('page2').style.webkitAnimation = 'pageout 1s linear both';
+        timeout3 = setTimeout(function()
+        {
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+            cut_image(image_url_index,1);
+            image_url_index++;
+            id('page1').style.webkitAnimation = 'pagein 1s linear both';
+        },1000);
+
+        timeout4 = setTimeout(begin_show,5000);
+    }
+
+    function cut_image(image_url_index,pageindex)
+    {
+        if(reshow == true)
+            return;
+        var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+
+        var img_obj = id('img'+pageindex);
+        if(img_bili >(307/292))
+        {
+            img_obj.style.height = '292px';
+            img_obj.style.top = '0px';
+            img_obj.style.width = 292*img_bili+'px';
+            img_obj.style.left = -(292*img_bili-307)/2+'px';
+        }
+        else
+        {
+            img_obj.style.width = '307px';
+            img_obj.style.left = '0px';
+            img_obj.style.height = 307/img_bili+'px';
+            img_obj.style.top = -(307/img_bili-292)/2+'px';
+        }
+        img_obj.src=Onload_imgs_url[image_url_index];
+    }
+    call_me(load_images);
+
+    function reload_scene()
+    {
+        reshow = true;
+        load_images();
+    }
+
+</script>
+</body>
+
+</html>

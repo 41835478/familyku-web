@@ -1,9 +1,8 @@
 'use strict'
 
 define([
-  'common/uniqueAjax',
-  'lib/art/3.0'
-], function(UniqueAjax, Template) {
+  '/js/lib/art/3.0.js'
+], function( Template) {
 
   var convJSON2Data =  function(json){
     var data, len = 0, errorList
@@ -37,27 +36,26 @@ define([
     }
     
   }
-
-  var loadData =  function(param){
-    UniqueAjax({
-      url : param.url,
-      data: param.param,
-      method: 'post', 
-      dataType: 'json',
-      flag: param.flag,
-      success : function(json){
-        if(json.status == 0){
-          console.log(json.statusText)
-        }else{
-          param.success(json)
-        }
-      }
-    })
-  }
+  //
+  //var loadData =  function(param){
+  //  UniqueAjax({
+  //    url : param.url,
+  //    data: param.param,
+  //    method: 'post',
+  //    dataType: 'json',
+  //    flag: param.flag,
+  //    success : function(json){
+  //      if(json.status == 0){
+  //        console.log(json.statusText)
+  //      }else{
+  //        param.success(json)
+  //      }
+  //    }
+  //  })
+  //}
 
   return {
     render: render,
-    convJSON2Data: convJSON2Data,
-    loadData: loadData
+    convJSON2Data: convJSON2Data
   }
 })
