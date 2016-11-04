@@ -1,0 +1,49 @@
+.footer {
+	font-size: .26rem;
+	position: fixed;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 0;
+	height: .88rem;
+	line-height: .88rem;
+	width: 100%;
+	max-width: 414px;
+	z-index: 199;
+}
+.footer::after {
+	content: "";
+	z-index: 197;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	opacity: .5;
+	left: 0;
+	top: 0;
+}
+.footer>a {
+	width: 25%;
+	float: left;
+	text-align: center;
+	color: #FFFFFF;
+	position: relative;
+	z-index: 198;
+}
+.footer .iconfont {
+	font-size: .26rem;
+	margin-right: .16rem;
+}
+#moban {
+	height: 100%;
+}
+.moban_box {
+	float: left;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+.moban_box>img {
+	height: 100%;
+	width: 100%;
+}
