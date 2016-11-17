@@ -32,7 +32,7 @@ header>ul>.active {
 .big_box {
 	font-size: .24rem;
 	clear: both;
-	/*padding-top: 1.18rem;*/
+	padding-top: 1.18rem;
 }
 .big_box>ul>li {
 	float: left;

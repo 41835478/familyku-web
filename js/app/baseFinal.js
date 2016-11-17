@@ -3,6 +3,9 @@
 define([''],function() {
 	return {
 		TOKEN:"token",
-		USER_NAME:"userName"
+		USER_NAME:"userName",
+		RESPONSE_STATUS:{
+			success:200
+		}
 	}
 });

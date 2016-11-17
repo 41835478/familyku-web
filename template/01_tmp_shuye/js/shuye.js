@@ -3,11 +3,14 @@
  */
 'use strict'
 define(["./../../../js/common/render"],function (Render) {
-    var TMPL = {
-        tmpl_shuye: 'tmpl_shuye'
+    var userData,
+        TMPL = {
+        tmpl_shuye: '/template/01_tmp_shuye/js/tmpl_shuye.js'
     }
-    var init = function () {
+    var init = function (data) {
+        userData= data;
         console.log("abc");
+        $("head").append(' <link type="text/css" rel="stylesheet" href="/template/01_tmp_shuye/css/shuye.css?ver=3" />');
         renderContainer();
     }
     var renderContainer = function (){
@@ -54,11 +57,12 @@ define(["./../../../js/common/render"],function (Render) {
         //    onload = load_init_modules;
         //}
 
-        var slider_images_url = [];slider_images_url.push('../../../demo/green/userImg/hn_445211448943.jpg');
+        var slider_images_url = [];
+        slider_images_url.push('../../../demo/green/userImg/hn_445211448943.jpg');
         var date = 20161103;
         var zan_num = 0;
         var e_bookid = 'Fpx5HcVlzcptiKiQwQ9VHULpFle0vk3f';
-        var e_desc = '深深的撒萨德撒多撒多所多撒多撒多撒大所多撒深深的撒萨德撒多撒';
+        var e_desc = '看我';
         var e_openid = null;
         var e_scene = 'rose';
         var editmode = false;
@@ -67,10 +71,20 @@ define(["./../../../js/common/render"],function (Render) {
         var guanzhu_url = 'http://haoyy0.kagirl.cn/kphoto/more1.php?wxid=haoyy';
         var words = {};
         var app = '';
-        e_openid = 'T_9RB8DEFShzyGSkhTLVbY3-f6SEc_PQEAFUoTWfJaU35DqqcCGofuNkU_Vx9Z13QOV1fV6lJlM';editmode = true; e_scene = 'faya';var e_music_url = '../../../demo/music/menglishuixiang.mp3';
+        e_openid = 'T_9RB8DEFShzyGSkhTLVbY3-f6SEc_PQEAFUoTWfJaU35DqqcCGofuNkU_Vx9Z13QOV1fV6lJlM';editmode = true; e_scene = 'faya';
+        var e_music_url = '../../../demo/music/menglishuixiang.mp3';
         var e_music_title = '';
         var tbssaveoff = false;
         var isguangchang = '';
+        if(userData){
+            slider_images_url=[];
+            var userImg=userData.images;
+            for(var i=0;i<userImg.length;i++){
+                slider_images_url.push(userImg[i].img);
+            }
+            console.log(slider_images_url);
+            e_music_url=userData.music.linkaddr;
+        }
 
         var get_pid = function(url){
             var index1 = url.indexOf("?");

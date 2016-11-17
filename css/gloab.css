@@ -1,0 +1,161 @@
+caption,
+th {
+	text-align: left
+}
+a {
+	color: #333333;
+	text-decoration: none;
+}
+a:focus {
+	outline-style: none;
+}
+img {
+	/*max-width: 100%;*/
+}
+abbr,
+acronym {
+	border: 0;
+	font-variant: normal
+}
+li {
+	list-style: none;
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button {
+	margin: 0;
+	padding: 0;
+}
+i {
+	font-style: normal
+}
+textarea {
+	resize: none
+}
+ul {
+	-webkit-padding-start: 0px;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+}
+html {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	font-size: 50px;
+	height: 100%;
+	background-color: #FFFFFF;
+	max-width: 414px;
+}
+body {
+	font-family: "PingFang SC", "Noto sans CJK SC", helvetica, "microsoft yahei", arial, sans-serif;
+	background: #fff;
+	overflow-x: hidden;
+	-webkit-text-size-adjust: none;
+	/*max-width: 414px;*/
+	margin: 0 auto;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+/*适配*/
+
+@media screen and (min-width: 255px) {
+	html {
+		font-size: 44px;
+	}
+}
+@media screen and (min-width: 295px) {
+	html {
+		font-size: 44px;
+	}
+}
+@media screen and (min-width: 335px) {
+	html {
+		font-size: 50px;
+	}
+}
+@media screen and (min-width: 375px) {
+	html {
+		font-size: 50px;
+	}
+}
+@media screen and (min-width: 410px) {
+	html {
+		font-size: 50px;
+	}
+}
+@media screen and (min-width: 450px) {
+	html {
+		font-size: 50px;
+	}
+}
+@media screen and (min-width: 490px) {
+	html {
+		font-size: 50px;
+	}
+}
+@media screen and (min-width: 530px) {
+	html {
+		font-size: 50px;
+	}
+}
+.gloab_box {
+	position: relative;
+	overflow: hidden;
+	font-size: .24rem;
+}
+.kongbai{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	font-size: .24rem;
+	color: #cccccc;
+	text-align: center;
+}
+.kongbai .icon_img { position: absolute; height: 2rem; top: 0; bottom: 0; left: 0; right: 0; margin: auto;}
+.kongbai .iconfont { font-size: 1.2rem; display: block;}
+.kongbai .kong_btn { position:absolute ; width: 92%; left: 4%; bottom: 4%; background: #4abdcc; color: #FFFFFF; height: .88rem; line-height: .88rem; text-align: center;}
+
+.main_container {width:100%;height:100%;}
+
+/** {*/
+	/*padding: 0px;*/
+	/*margin: 0px;*/
+	/*-webkit-box-sizing: border-box;*/
+/*}*/
+
+/*body*/
+/*{*/
+	/*background-color: black;*/
+/*}*/
+
+/*#container*/
+/*{*/
+	/*width: 500px;*/
+	/*height: 100%;*/
+	/*position: absolute;*/
+	/*overflow: hidden;*/
+/*}*/
+/*#container > div,#container > img*/
+/*{*/
+	/*position: absolute;*/
+/*}*/
