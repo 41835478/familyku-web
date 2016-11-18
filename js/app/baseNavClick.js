@@ -7,6 +7,12 @@ define(['jquery'], function($, Login, Render, URL) {
       Preview.init({router:router});
     })
   };
+  var tmplist =function (){
+    console.log("require tmplist");
+    require(['app/tmplist/tmplist'], function(TmpList) {
+      TmpList.init({router:router});
+    });
+  };
 
   var initEvent = function() {
     $(document).on('click', '#confirm_order_li', function () {
@@ -33,6 +39,7 @@ define(['jquery'], function($, Login, Render, URL) {
   initEvent();
   var routes = {
     '/preview':preview,
+    '/tmplist':tmplist
     //'/send_order': send_order,
     //'/search_order': search_order,
     //'/control_center':control_center,

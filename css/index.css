@@ -1,3 +1,4 @@
+/*预览页样式*/
 .footer {
 	font-size: .26rem;
 	position: fixed;
@@ -46,7 +47,65 @@
 	background:url(../img/index.jpg) no-repeat;
 	background-size:cover;
 }
-/*.moban_box>img {*/
-	/*height: 100%;*/
-	/*width: 100%;*/
-/*}*/
+
+
+/*列表页样式*/
+header {
+	height: .88rem;
+	line-height: .88rem;
+	background: #FFFFFF;
+	position: relative;
+}
+header>ul {
+	margin-left: 3%;
+	position: absolute;
+	width: 200%;
+	height: .88rem;
+	line-height: .88rem;
+	left: 0;
+	top: 0;
+}
+header>ul>li {
+	float: left;
+	font-size: .26rem;
+	color: #999999;
+	margin-left: .3rem;
+	cursor: pointer;
+}
+header>ul>li:first-child {
+	margin-left: 0;
+}
+header>ul>.active {
+	color: #4abdcc;
+}
+.big_box {
+	font-size: .24rem;
+	clear: both;
+	/*padding-top: 1.18rem;*/
+}
+.big_box>ul>li {
+	float: left;
+	width: 29.33%;
+	position: relative;
+	overflow: hidden;
+	margin: 0 0 3% 3%;
+}
+.big_box>ul>li>div,
+.big_box>ul>li>span {
+	float: left;
+	width: 100%;
+}
+.big_box>ul>li>div {
+	height: 0;
+	padding-bottom: 100%;
+	overflow: hidden;
+}
+.big_box>ul>li>div>img {
+	width:100%;
+}
+.big_box>ul>li>span {
+	text-align: center;
+	height: .5rem;
+	line-height: .5rem;
+	background: #FFFFFF;
+}

@@ -21,6 +21,7 @@ define(["./../../../js/common/render"],function (Render) {
                 tmplData: {}
             },
             afterRender: function(){
+                return;
                 initContainer();
             }
         })

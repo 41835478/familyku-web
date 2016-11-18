@@ -17,6 +17,8 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
                 tmplData: data
             },
             afterRender: function () {
+                $("header ul li[data-id="+data[0].id+"]").show().addClass("active");
+                $("#tmplist_"+data[0].id).show();
                 //requestPhotos();
             }
         });
