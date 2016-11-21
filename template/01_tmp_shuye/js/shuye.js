@@ -21,7 +21,7 @@ define(["./../../../js/common/render"],function (Render) {
                 tmplData: {}
             },
             afterRender: function(){
-                return;
+                //return;
                 initContainer();
             }
         })
@@ -103,6 +103,7 @@ define(["./../../../js/common/render"],function (Render) {
 
         function showtitle()
         {
+
             id('pagetitle').style.webkitAnimation = 'title_in 1.5s ease-out both';
             id('titlecontent').innerHTML = e_desc;
         }
@@ -110,8 +111,8 @@ define(["./../../../js/common/render"],function (Render) {
         function distitle()
         {
             id('pagetitle').style.webkitAnimation = 'title_out 2.5s ease-in both';
-
             timeout1 = setTimeout(show1,2000)
+
         }
 
         function show1()
@@ -183,6 +184,7 @@ define(["./../../../js/common/render"],function (Render) {
 
         function set_items_position(pageid)
         {
+            var screenWidth=window.screen.width;
             var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
 
             console.log(img_bili);
@@ -214,28 +216,88 @@ define(["./../../../js/common/render"],function (Render) {
                 word.innerText = "";
             }
 
+            //if(img_bili >= 1)
+            //{
+            //    id('wenzi'+pageid+'_1').style.top = '158px';
+            //    id('wenzi'+pageid+'_2').style.top = '158px';
+            //
+            //
+            //    div.style.width = '460px';
+            //    if(img_bili > (460/300))
+            //    {
+            //        div.style.height = '300px';
+            //
+            //        img.style.height = '300px';
+            //        img.style.width = 300 * img_bili + 'px';
+            //        img.style.left = (460 - 300 * img_bili)/2 + 'px';
+            //        img.style.top = '0px';
+            //    }
+            //    else
+            //    {
+            //        div.style.height = 460 / img_bili + 'px';
+            //
+            //        img.style.width = '460px';
+            //        img.style.height = 460/img_bili+'px';
+            //        img.style.left = '0px';
+            //        img.style.top = '0px';
+            //    }
+            //
+            //    div.style.left = '20px';
+            //    div.style.top = '220px';
+            //
+            //}
+            //else
+            //{
+            //    id('wenzi'+pageid+'_1').style.top = '38px';
+            //    id('wenzi'+pageid+'_2').style.top = '38px';
+            //
+            //    div.style.width = '380px';
+            //    if(img_bili < (380/600))
+            //    {
+            //        div.style.height = '600px';
+            //
+            //        img.style.width = '380px';
+            //        img.style.height = 380 / img_bili + 'px';
+            //        img.style.left = '0px';
+            //        img.style.top = (600-380/img_bili)/2 + 'px';
+            //    }
+            //    else
+            //    {
+            //        div.style.height = 380 / img_bili+ 'px';
+            //
+            //        img.style.width = '380px';
+            //        img.style.height = 380 / img_bili + 'px';
+            //        img.style.left = '0px';
+            //        img.style.top = '0px';
+            //    }
+            //
+            //    div.style.left = '60px';
+            //    div.style.top = '100px';
+            //}
+
+            var tmpWidth=screenWidth*0.9;
             if(img_bili >= 1)
             {
                 id('wenzi'+pageid+'_1').style.top = '158px';
                 id('wenzi'+pageid+'_2').style.top = '158px';
 
 
-                div.style.width = '460px';
-                if(img_bili > (460/300))
+                div.style.width = tmpWidth+'px';
+                if(img_bili > (tmpWidth/300))
                 {
                     div.style.height = '300px';
 
                     img.style.height = '300px';
                     img.style.width = 300 * img_bili + 'px';
-                    img.style.left = (460 - 300 * img_bili)/2 + 'px';
+                    img.style.left = (tmpWidth - 300 * img_bili)/2 + 'px';
                     img.style.top = '0px';
                 }
                 else
                 {
-                    div.style.height = 460 / img_bili + 'px';
+                    div.style.height = tmpWidth / img_bili + 'px';
 
-                    img.style.width = '460px';
-                    img.style.height = 460/img_bili+'px';
+                    img.style.width = tmpWidth+'px';
+                    img.style.height = tmpWidth/img_bili+'px';
                     img.style.left = '0px';
                     img.style.top = '0px';
                 }
@@ -249,27 +311,28 @@ define(["./../../../js/common/render"],function (Render) {
                 id('wenzi'+pageid+'_1').style.top = '38px';
                 id('wenzi'+pageid+'_2').style.top = '38px';
 
-                div.style.width = '380px';
-                if(img_bili < (380/600))
+
+                div.style.width = tmpWidth+'px';
+                if(img_bili < (tmpWidth/600))
                 {
                     div.style.height = '600px';
 
-                    img.style.width = '380px';
-                    img.style.height = 380 / img_bili + 'px';
+                    img.style.width = tmpWidth+'px';
+                    img.style.height = tmpWidth / img_bili + 'px';
                     img.style.left = '0px';
-                    img.style.top = (600-380/img_bili)/2 + 'px';
+                    img.style.top = (600-tmpWidth/img_bili)/2 + 'px';
                 }
                 else
                 {
-                    div.style.height = 380 / img_bili+ 'px';
+                    div.style.height = tmpWidth / img_bili+ 'px';
 
-                    img.style.width = '380px';
-                    img.style.height = 380 / img_bili + 'px';
+                    img.style.width = tmpWidth+'px';
+                    img.style.height = tmpWidth / img_bili + 'px';
                     img.style.left = '0px';
                     img.style.top = '0px';
                 }
 
-                div.style.left = '60px';
+                div.style.left = '25px';
                 div.style.top = '100px';
             }
 

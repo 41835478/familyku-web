@@ -10,7 +10,7 @@ define(function () {
     "<div id='pagetitle'>",
     "<div id='titlemoving'>",
     "<img id='juxing' src='/template/01_tmp_shuye/img/juxing.png'>",
-    "<div style='position: absolute;width: 212px;height: 238px;top: 262px;left: 149px;overflow: hidden;'>",
+    "<div style='position: absolute;width: 212px;height: 238px;top: 190px;left: 85px;overflow: hidden;'>",
     "<div style='position:absolute;width:212px;height:238px;top:0px;left:0px;overflow:hidden;'>",
     "<div style='position:absolute;width:212px;height:238px;display:table;overflow:hidden;'>",
     "<div id='titlecontent' style='width:212px;height:238px;vertical-align:middle;display:table-cell;text-align:center;font-size:32px;line-height:45px;color:#3F6E08;font-weight:bold;'></div>",

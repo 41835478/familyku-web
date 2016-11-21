@@ -112,8 +112,8 @@
 {
     width: 100px;
     height: 100px;
-    left: 230px;
-    top: 179px;
+    left: 165px;
+    top: 150px;
     position: absolute;
 }
 .chi1
@@ -185,9 +185,9 @@
 }
 #juxing
 {
-    left: 209px;
+    left: 145px;
     -webkit-transform: scale(2.5,-1);
-    top: 243px;
+    top: 210px;
     opacity: 0.5;
     position: absolute;
 }
@@ -225,7 +225,7 @@
 }
 .divcon
 {
-    width: 500px;
+    width: 100%;
     height: 815px;
     position: absolute;
     opacity: 0;
@@ -239,7 +239,7 @@
 .wenzi_2
 {
     position: absolute;
-    left: 390px;
+    left: 260px;
 }
 
 #div1box
