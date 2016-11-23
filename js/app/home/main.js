@@ -5,6 +5,7 @@ require.config({
     urlArgs:'ver=1.0.0.2',
     paths: {
         jquery: 'lib/jquery/1.11.1',
+        zepto: 'lib/zepto/zepto',
         render: 'common/render',
         uniqueAjax: 'common/uniqueAjax',
         responser: 'common/responser',

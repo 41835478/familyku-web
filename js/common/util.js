@@ -1,23 +1,5 @@
 define([], function () {
     var utilObj = {
-        checkLogin: function (token){
-            if(!token  || token=="xiaoma"){
-                var isAndroid = (/android/gi).test(navigator.appVersion);
-                var isIOS = (/iphone|ipad/gi).test(navigator.appVersion);
-                if(isAndroid){
-                    if(window.JavaLoginInterface && window.JavaLoginInterface.login){
-                        window.JavaLoginInterface.login();
-                    }
-                }else if(isIOS){
-                    if(window.webViewHasLogin){
-                        window.webViewHasLogin();
-                    }
-                }
-                return false;
-            }else{
-                return true;
-            }
-        },
         toDecimal2 : function(x) {
         var f = parseFloat(x);
         if (isNaN(f)) {

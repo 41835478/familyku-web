@@ -13,12 +13,16 @@ define(['jquery'], function($, Login, Render, URL) {
       TmpList.init({router:router});
     });
   };
-
-  var initEvent = function() {
-    $(document).on('click', '#confirm_order_li', function () {
-        console.log(window.location.href);
-        window.location.href=window.location.href.split("#")[0]+"#preview";
+  var musiclist= function (){
+    require(['app/musiclist/musiclist'], function(MusicList) {
+      MusicList.init({router:router});
     });
+  }
+  var initEvent = function() {
+    //$(document).on('click', '#confirm_order_li', function () {
+    //    console.log(window.location.href);
+    //    window.location.href=window.location.href.split("#")[0]+"#preview";
+    //});
     //$(document).on('click', '#send_order_li', function () {
     //  window.location.href=window.location.href.split("#")[0]+"#send_order";
     //});
@@ -39,7 +43,8 @@ define(['jquery'], function($, Login, Render, URL) {
   initEvent();
   var routes = {
     '/preview':preview,
-    '/tmplist':tmplist
+    '/tmplist':tmplist,
+    '/musiclist':musiclist
     //'/send_order': send_order,
     //'/search_order': search_order,
     //'/control_center':control_center,

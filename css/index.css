@@ -109,3 +109,148 @@ header>ul>.active {
 	line-height: .5rem;
 	background: #FFFFFF;
 }
+
+
+/*音乐列表样式**/
+.bottom_btnnn {
+	position: fixed;
+	right: 0;
+	margin: 0 auto;
+	z-index: 999;
+	height: .88rem;
+	line-height: .88rem;
+	max-width: 414px;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+.ph_bottom .bottom_zd,
+.bottom_btnnn_zd {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #000000;
+	opacity: .4;
+	z-index: 9;
+}
+.bottom_btnnn_zd {
+	opacity: 1;
+	background: #333333;
+	z-index: -1;
+}
+.bottom_btnnn>span {
+	float: left;
+	position: relative;
+	z-index: 1000;
+	width: 50%;
+	text-align: center;
+	line-height: .88rem;
+	height: .88rem;
+}
+.bottom_btnnn>span>i {
+	color: #FFFFFF;
+	font-size: .38rem;
+}
+.ph_bottom .btn {
+	position: absolute;
+	z-index: 10;
+	cursor: pointer;
+	width: 50%;
+	text-align: center;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.ph_bottom .btn_next {
+	left: 50%;
+}
+.mic_here {
+	height: .88rem;
+	line-height: .88rem;
+	border-bottom: 1px solid #f6f7f9;
+}
+.mic_name {
+	color: #999999;
+	margin-left: .3rem;
+	float: left;
+	max-width: 60%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.mic_btn {
+	width: .88rem;
+	float: right;
+	margin-right: .6rem;
+	height: .44rem;
+	line-height: .44rem;
+	margin-top: .22rem;
+	border-radius: 2px;
+	text-align: center;
+	background: #CCCCCC;
+	color: #FFFFFF;
+}
+.active .mic_btn {
+	background: #4abdcc;
+;
+}
+.mic_here.active .mic_btna,
+.active .mic_name {
+	color: #4abdcc;
+;
+}
+.mic_here>.mic_btna {
+	color: #CCCCCC;
+	font-size: .3rem;
+	float: right;
+	margin-right: .3rem;
+}
+/*save 页面样式*/
+
+#save {
+	background: #f6f7f9;
+	height: 100%;
+}
+.save_box {
+	width: 92%;
+	margin: 0 4%;
+}
+.save_title {
+	color: #333333;
+}
+.save_here {
+	float: left;
+	width: 100%;
+	margin-top: .5rem;
+}
+.save_here:first-child {
+	margin-top: .3rem;
+}
+.text_mesg,
+.text_mesg>textarea {
+	float: left;
+	width: 100%;
+	outline: none;
+	height: 3rem;
+	padding-top: .2rem;
+	border: none;
+}
+.text_mesg>textarea {
+	text-indent: 1em;
+}
+.xieyi {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: .5rem;
+	color: #4abdcc;
+}
+.xieyi .iconfont {
+	color: #FFFFFF;
+	background: #4abdcc;
+	font-size: .18rem;
+	padding: .02rem .04rem;
+	float: left;
+	margin-right: .1rem;
+}
