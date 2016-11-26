@@ -38,6 +38,8 @@
 .bottom_btnnn>span>i {
 	color: #FFFFFF;
 	font-size: .38rem;
+	display: block;
+	line-height: .88rem;
 }
 .ph_bottom .btn {
 	position: absolute;

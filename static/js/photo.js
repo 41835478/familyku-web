@@ -36,5 +36,30 @@ function pubu (){
 //			_this.css({"left":"4%"});
 //		};
 //	});
+$(".photo_here img").on("click",function(){
+	$(".fengmian").remove();
+	var html='<div class="fengmian">封面</div>';
+	 $(this).parents(".photo_here").append(html);
+});
+
+$(".btn_prev").on("click",function(){
+	var index=parseInt($(this).parents(".photo_here").index())-1;
+	if(index>0){
+		var html=$(this).parents(".photo_here");
+	$(this).parents(".photo_here").remove();
+	$(".photo_here:eq("+index+")").before(html);
+	pubu();
+	}
+	
+});
+$(".btn_next").on("click",function(){
+	var index=parseInt($(this).parents(".photo_here").index())+1;
+		var html=$(this).parents(".photo_here");
+	$(this).parents(".photo_here").remove();
+	$(".photo_here:eq("+index+")").before(html);
+	pubu();
+});
+
+
 };
 
