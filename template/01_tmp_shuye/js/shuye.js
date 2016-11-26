@@ -63,7 +63,7 @@ define(["./../../../js/common/render"],function (Render) {
         var date = 20161103;
         var zan_num = 0;
         var e_bookid = 'Fpx5HcVlzcptiKiQwQ9VHULpFle0vk3f';
-        var e_desc = '看我';
+        var e_desc = '我是模版'+localStorage.getItem("familyku_tmpId");
         var e_openid = null;
         var e_scene = 'rose';
         var editmode = false;

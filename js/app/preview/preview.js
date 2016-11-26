@@ -24,7 +24,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
     };
     var requestPhotos = function (){
         $.ajax({
-            url:URL.baseURLForward+"/diary/tempimg", // URL.baseURL9 + 'jijing_answers/web_mark',
+            url:URL.baseURLForward+"/diary/tempinfo", // URL.baseURL9 + 'jijing_answers/web_mark',
             data: {
                 token:"人渣"
             },
