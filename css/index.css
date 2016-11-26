@@ -254,3 +254,233 @@ header>ul>.active {
 	float: left;
 	margin-right: .1rem;
 }
+/*新增图片*/
+#photo {
+	font-size: .2rem;
+	position: relative;
+	overflow: initial;
+}
+.add_img {
+	position: absolute;
+	font-size: .26rem;
+	cursor: pointer;
+	color: #4abdcc;
+	text-align: center;
+	height: 2rem;
+	min-height: 2rem;
+	z-index: 99;
+	background: #FFFFFF;
+}
+.add_img>i {
+	font-size: .44rem;
+	margin-top: .6rem;
+	display: block;
+}
+.add_img>b {
+	display: block;
+	margin-top: .1rem;
+}
+.photo_here {
+	width: 44%;
+	position: absolute;
+	left: 4%;
+}
+.photo_here:last-child {
+	margin-bottom: .88rem;
+}
+.photo_here>img {
+	float: left;
+	width: 100%;
+	min-height: 2.4rem;
+}
+.photo_here>span {
+	position: absolute;
+	font-size: .4rem;
+	right: 0;
+	top: 0;
+	background: #FFFFFF;
+	color: #ff4e38;
+}
+.photo_here:nth-child(even) {
+	left: 52%;
+}
+.ph_bottom {
+	position: absolute;
+	color: #FFFFFF;
+	width: 100%;
+	height: .6rem;
+	line-height: .6rem;
+	left: 0;
+	bottom: 0;
+}
+.bottom_btnnn {
+	position: fixed;
+	right: 0;
+	margin: 0 auto;
+	z-index: 999;
+	height: .88rem;
+	line-height: .88rem;
+	max-width: 414px;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+.ph_bottom .bottom_zd,
+.bottom_btnnn_zd {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #000000;
+	opacity: .4;
+	z-index: 9;
+}
+.bottom_btnnn_zd {
+	opacity: 1;
+	background: #333333;
+	z-index: -1;
+}
+.bottom_btnnn>span {
+	float: left;
+	position: relative;
+	z-index: 1000;
+	width: 50%;
+	text-align: center;
+	line-height: .88rem;
+	height: .88rem;
+}
+.bottom_btnnn>span>i {
+	color: #FFFFFF;
+	font-size: .38rem;
+}
+.ph_bottom .btn {
+	position: absolute;
+	z-index: 10;
+	cursor: pointer;
+	width: 50%;
+	text-align: center;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.ph_bottom .btn_next {
+	left: 50%;
+}
+.fengmian {
+	width: .92rem;
+	font-size: .32rem;
+	color: #FFFFFF;
+	height: .92rem;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	text-align: center;
+	line-height: .92rem;
+	z-index: 100;
+}
+.fengmian::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: #4abdcc;
+	z-index: -1;
+	opacity: .7;
+}
+.photo_boxxx {
+	display: none;
+}
+#photo>.active {
+	display: block;
+}
+.miaoshu_here {
+	margin-top: 4%;
+	float: left;
+	width: 100%;
+}
+.miaoshu_here>.img_box {
+	float: left;
+	width: 26%;
+	margin: 0 4%;
+	height: 0;
+	padding-bottom: 26%;
+	overflow: hidden;
+}
+.miaoshu_here>.img_box img {
+	width: 100%;
+	min-height: 100%;
+}
+.text_mesg {
+	height: 0;
+	padding-bottom: 26%;
+	float: left;
+	width: 62%;
+	position: relative;
+}
+.text_mesg textarea {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+	text-indent: 1em;
+	outline: none;
+	border: none;
+}
+.squ_bottom {
+	text-indent: .2rem;
+	background: #FFFFFF;
+	float: left;
+	width: 100%;
+}
+.squ_bottom .squ_name {
+	margin: .2rem 0;
+	float: left;
+	width: 100%;
+}
+.squ_bottom .squ_liulan {
+	font-size: .2rem;
+	margin-bottom: .2rem;
+	color: #666666;
+	float: left;
+	width: 100%;
+}
+.banner {
+	font-size: .26rem;
+	position: fixed;
+	max-width: 414px;
+	width: 100%;
+	left: 0;
+	top: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: 999;
+	background: #FFFFFF;
+	height: .88rem;
+	line-height: .88rem;
+	text-align: center;
+}
+.banner>.where {
+	float: left;
+	margin-left: 4%;
+}
+.banner>.rt_iconfont {
+	float: right;
+	margin-right: 4%;
+	font-size: .3rem;
+}
+.banner_center {
+	color: #4abdcc;
+	font-size: .58rem !important;
+}
