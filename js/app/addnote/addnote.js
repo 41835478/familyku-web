@@ -12,6 +12,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
     };
     var initEvent = function(){
         $(document).off('click','.iadd_img').on('click','.add_img',addphoto);
+        $(document).off('click','.deleImg').on('click','.deleImg',deleImg);
         $(document).on('change','#addImg',function(){
             $.ajaxFileUpload({
                 url: URL.baseURLForward1 + 'api/images/upload',
@@ -23,7 +24,11 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 success: function(data, status){
                     var thisdata = JSON.parse($(data).find("pre").html()).data[0];
                     var oldlist = localStorage.getItem('phoneList');
-                    oldlist = oldlist.split(',');
+                    if(!oldlist || oldlist.length==0){
+                        oldlist=[];
+                    }else {
+                        oldlist = oldlist.split(',');
+                    }
                     oldlist.push(thisdata);
                     localStorage.setItem('phoneList',oldlist);
                     renderContainer(oldlist);
@@ -43,8 +48,6 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 tmplData: data
             },
             afterRender: function () {
-                //$("#musiclist_"+data[0].id).show();
-                //requestPhotos();
                 setTimeout(function(){
                     pubu();
                 },10);
@@ -52,6 +55,14 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
 
         });
     };
+    var deleImg = function(){
+        var index = $('.deleImg').attr('data-index');
+        var thisdata = localStorage.getItem('phoneList').split(',');
+            thisdata.splice(index, 1);
+            localStorage.setItem('phoneList',thisdata);
+            renderContainer(thisdata)
+
+    }
     var requestPhotoList = function (){
         $.ajax({
             url:URL.baseURLForward+"diary/tempinfo?userid=1 ",

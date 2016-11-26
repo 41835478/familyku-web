@@ -8,8 +8,8 @@ define ([], function () {
         '<div class="photo_boxxx active">',
         '<div class="add_img photo_here"><i class="iconfont icon-tianjia"></i> <b>添加图片</b></div>',
 
-        '{{each data as item}}',
-        '<div class="photo_here" dataimg={{item}}><span class="iconfont icon-lajitong"></span><img src="{{item}}" />',
+        '{{each data as item index}}',
+        '<div class="photo_here"><span class="iconfont icon-lajitong deleImg" data-index="{{index}}"></span><img src="{{item}}" />',
         '<div class="ph_bottom">',
         '<div class="bottom_zd"></div>',
         '<span class="btn btn_prev">前移</span>',
