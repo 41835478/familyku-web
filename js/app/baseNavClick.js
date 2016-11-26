@@ -18,6 +18,11 @@ define(['jquery'], function($, Login, Render, URL) {
       MusicList.init({router:router});
     });
   }
+  var addnote = function(){
+    require(['app/addnote/addnote'], function(Addnote) {
+      Addnote.init({router:router});
+    });
+  }
   var initEvent = function() {
     //$(document).on('click', '#confirm_order_li', function () {
     //    console.log(window.location.href);
@@ -44,7 +49,8 @@ define(['jquery'], function($, Login, Render, URL) {
   var routes = {
     '/preview':preview,
     '/tmplist':tmplist,
-    '/musiclist':musiclist
+    '/musiclist':musiclist,
+    '/addnote':addnote,
     //'/send_order': send_order,
     //'/search_order': search_order,
     //'/control_center':control_center,
