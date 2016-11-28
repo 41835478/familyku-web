@@ -35,6 +35,7 @@ require([
     'app/home/home',
 
 ], function(Director,BaseCookie,BaseNavClick,$,home) {
+        window.timerTmpArray=[];
         home.init();
 
 

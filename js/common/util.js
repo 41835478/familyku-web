@@ -285,6 +285,15 @@ define([], function () {
                     target.get(0).pause();
                 }
             }
+        },
+
+        clearTimerTmp : function (){
+            if(window.timerTmpArray.length>0){
+                for(var i=0;i<window.timerTmpArray.length;i++){
+                    window.clearTimeout(window.timerTmpArray[i]);
+                }
+                window.timerTmpArray=[];
+            }
         }
 
     };

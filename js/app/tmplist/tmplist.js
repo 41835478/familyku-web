@@ -2,7 +2,7 @@
  * Created by 123 on 2016/11/15.
  */
 'use strict';
-define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function (Render, URL, BaseCookie, Final) {
+define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal',"common/util"], function (Render, URL, BaseCookie, Final,Util) {
     var TMPL = {
         tmpl_tmp: 'app/tmplist/tmpl_tmp',
         tmpl_tmp_item:'app/tmplist/tmpl_tmp_item'
@@ -120,12 +120,13 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         }
 
     };
-    var renderDefaultTmpl = function (data){
-        require(["./../template/01_tmp_shuye/js/shuye"],function(ShuYe) {
-            //var ShuYe = require();
-            ShuYe.init(data);
-        })
-    }
+    //var renderDefaultTmpl = function (data){
+    //    require(["./../template/01_tmp_shuye/js/shuye"],function(ShuYe) {
+    //        //var ShuYe = require();
+    //        Util.clearTimerTmp();
+    //        ShuYe.init(data);
+    //    })
+    //}
     return {
         init:init
     }

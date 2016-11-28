@@ -54,6 +54,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
     var renderDefaultTmpl = function (data){
         require(["./../template/01_tmp_shuye/js/shuye"],function(ShuYe) {
             //var ShuYe = require();
+            Util.clearTimerTmp();
             ShuYe.init(data);
             loadMusic(data);
         })

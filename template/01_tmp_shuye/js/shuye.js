@@ -8,8 +8,9 @@ define(["./../../../js/common/render"],function (Render) {
         tmpl_shuye: '/template/01_tmp_shuye/js/tmpl_shuye.js'
     }
     var init = function (data) {
+        console.log("init");
         userData= data;
-        console.log("abc");
+        //console.log("abc");
         $("head").append(' <link type="text/css" rel="stylesheet" href="/template/01_tmp_shuye/css/shuye.css?ver=3" />');
         renderContainer();
     }
@@ -103,7 +104,6 @@ define(["./../../../js/common/render"],function (Render) {
 
         function showtitle()
         {
-
             id('pagetitle').style.webkitAnimation = 'title_in 1.5s ease-out both';
             id('titlecontent').innerHTML = e_desc;
         }
@@ -112,7 +112,7 @@ define(["./../../../js/common/render"],function (Render) {
         {
             id('pagetitle').style.webkitAnimation = 'title_out 2.5s ease-in both';
             timeout1 = setTimeout(show1,2000)
-
+            window.timerTmpArray.push(timeout1);
         }
 
         function show1()
@@ -122,7 +122,8 @@ define(["./../../../js/common/render"],function (Render) {
 
             id('div1con').style.webkitAnimation = 'div1_in 2s ease-out both';
 
-            timeout2 = setTimeout(show2,6000)
+            timeout2 = setTimeout(show2,6000);
+            window.timerTmpArray.push(timeout2);
         }
 
         function show2()
@@ -133,7 +134,8 @@ define(["./../../../js/common/render"],function (Render) {
             id('div1con').style.webkitAnimation = 'div1_out 1.5s ease-in both'
             id('div2con').style.webkitAnimation = 'div2_in 2s ease-out 1s both';
 
-            timeout3 = setTimeout(show3,6000)
+            timeout3 = setTimeout(show3,6000);
+            window.timerTmpArray.push(timeout3);
         }
 
         function show3()
@@ -144,7 +146,8 @@ define(["./../../../js/common/render"],function (Render) {
             id('div2con').style.webkitAnimation = 'div2_out 1.5s ease-in both'
             id('div3con').style.webkitAnimation = 'div3_in 2s ease-out 1s both';
 
-            timeout4 = setTimeout(show4,6000)
+            timeout4 = setTimeout(show4,6000);
+            window.timerTmpArray.push(timeout4);
         }
 
         function show4()
@@ -155,7 +158,8 @@ define(["./../../../js/common/render"],function (Render) {
             id('div3con').style.webkitAnimation = 'div3_out 1.5s ease-in both'
             id('div4con').style.webkitAnimation = 'div4_in 2s ease-out 1s both';
 
-            timeout5 = setTimeout(show1_1,6000)
+            timeout5 = setTimeout(show1_1,6000);
+            window.timerTmpArray.push(timeout5);
 
         }
 
@@ -167,7 +171,8 @@ define(["./../../../js/common/render"],function (Render) {
             id('div4con').style.webkitAnimation = 'div4_out 1.5s ease-in both'
             id('div1con').style.webkitAnimation = 'div1_in 2s ease-out 1s both';
 
-            timeout6 = setTimeout(show2,6000)
+            timeout6 = setTimeout(show2,6000);
+            window.timerTmpArray.push(timeout6);
         }
 
         function insertEnter(str,n){
