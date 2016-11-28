@@ -55,7 +55,7 @@ define ([], function () {
         '</div>',
         '</div>',
         '<div class="bottom_btnnn">',
-        '<div class="bottom_btnnn_zd"></div>',
+        '<div class="bottom_btnnn_zd" style="opacity: 0.5;"></div>',
         '<span class="btn_false"><i class="iconfont icon-cuowu"></i></span>',
         '<span class="btn_true"><i class="iconfont icon-zhengque"></i></span>',
         '</div>',

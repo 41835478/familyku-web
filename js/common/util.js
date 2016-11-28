@@ -266,7 +266,27 @@ define([], function () {
                 }).modal("hide");
 
             },1500);
+        },
+
+        musicPlay : function (id,url,loop){
+            var target=$("#"+id);
+            if(target.length>0){
+                target.get(0).src=url;
+                target.get(0).loop=true;
+                target.get(0).play();
+            }
+        },
+        musicPause : function (id){
+            var target=$("#"+id);
+            if(target.length>0){
+                if(target.get(0).paused){
+                    target.get(0).play();
+                }else {
+                    target.get(0).pause();
+                }
+            }
         }
+
     };
 
     return utilObj;

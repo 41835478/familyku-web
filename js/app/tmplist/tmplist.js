@@ -13,7 +13,11 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
     };
     var initEvent = function (){
         $(document).off("click",".tmplist_header_js").on("click",".tmplist_header_js",checkNavFn);
-        $(document).off("click",".tmplist_ul_js li").on("click",".tmplist_ul_js li",tmpliClickFn)
+        $(document).off("click",".tmplist_ul_js li").on("click",".tmplist_ul_js li",tmpliClickFn);
+        $(document).off("clcik",".tmp_btn_false_js").on("click",".tmp_btn_false_js",btnFalseClickFn);
+    };
+    var btnFalseClickFn = function (){
+        window.location.href=window.location.href.split("#")[0]+"#preview";
     };
     var tmpliClickFn = function (){
         var tmpId= $(this).attr("data-tmpId");

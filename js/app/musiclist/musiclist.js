@@ -16,7 +16,22 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         //$(document).off("click",".tmplist_ul_js li").on("click",".musiclist_ul_js li",musiclistClickFn);
         $(document).off("click",".musiclist_item_js").on("click",".musiclist_item_js",musiclistItemClickFn);
         $(document).off("click",".audition_btn_js").on("click",".audition_btn_js",auditionFn);
+        $(document).off("click",".musiclist_btn_true_js").on("click",".musiclist_btn_true_js",btnTrueClickFn);
+        $(document).off("click",".musiclist_btn_false_js").on("click",".musiclist_btn_false_js",btnFalseClickFn);
     };
+    var btnFalseClickFn = function (){
+        window.location.href=window.location.href.split("#")[0]+"#preview";
+    }
+    var btnTrueClickFn = function (){
+        var musicItem= $(".musiclist_box>.active");
+        if(musicItem.length>0){
+            var musicSrc=musicItem.find(".audition_btn_js").attr("data-src");
+            if(musicSrc){
+                localStorage.setItem("musicSrc",musicSrc);
+                btnFalseClickFn();
+            }
+        }
+    }
     var auditionFn = function (){
         if($(this).hasClass("icon-zanting")){
             $("#musicListAudio").get(0).pause();

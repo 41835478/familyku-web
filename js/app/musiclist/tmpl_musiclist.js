@@ -14,17 +14,12 @@ define ([], function () {
         '<div class="musiclist_box" >',
 
         '</div>',
-        //'{{each data as item}}',
-            //'<div id="musiclist_{{item.id}}" data-id="{{item.id}}" style="display: none;">',
-            // '{{each item.musiclist as music}}',
-            //     '<div class="mic_here">',
-            //         '<span class="mic_name">{{music.name}}</span>',
-            //         '<span class="mic_btna iconfont icon-zanting"></span>',
-            //         '<span class="mic_btn">歌词</span>',
-            //     '</div>',
-            // '{{/each}}',
-            //'</div>',
-        //'{{/each}}',
+        '<div class="bottom_btnnn">',
+            '<div class="bottom_btnnn_zd" style="opacity:0.5;"></div>',
+            '<span class="btn_false musiclist_btn_false_js"><i class="iconfont icon-cuowu"></i></span>',
+            '<span class="btn_true  musiclist_btn_true_js"><i class="iconfont icon-zhengque"></i></span>',
+            '</div>',
+        '</div>',
     '</div>',
     ].join('')
 })

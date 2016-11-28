@@ -2,7 +2,7 @@
  * Created by 123 on 2016/11/15.
  */
 'use strict';
-define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function (Render, URL, BaseCookie, Final) {
+define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/util'], function (Render, URL, BaseCookie, Final,Util) {
     var TMPL = {
         tmpl_preview: 'app/preview/tmpl_preview'
     }
@@ -43,10 +43,19 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
             }
         });
     };
+    var loadMusic = function (data){
+        var locationMusicSrc = localStorage.getItem("musicSrc");
+        if(locationMusicSrc){
+            Util.musicPlay("tmpAudio",locationMusicSrc,"loop");
+        }else if(data.music){
+            Util.musicPlay("tmpAudio",data.music.linkaddr,"loop");
+        }
+    }
     var renderDefaultTmpl = function (data){
         require(["./../template/01_tmp_shuye/js/shuye"],function(ShuYe) {
             //var ShuYe = require();
             ShuYe.init(data);
+            loadMusic(data);
         })
     }
     return {

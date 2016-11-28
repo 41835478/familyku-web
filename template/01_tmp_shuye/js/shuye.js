@@ -576,166 +576,166 @@ define(["./../../../js/common/render"],function (Render) {
             }
         }
 
-        function on_wx_music_init()
-        {
-            if(e_desc != "")
-            {
-                document.title = e_desc.replace("<br>", "\n").replace("<br/>", "\n");;
-            }
-            else
-            {
-                document.title = "音乐相册";
-            }
-            loadingdiv_out();
-            create_music();
-            on_weixin_share();
-            setTimeout(get_address, 500);
+        //function on_wx_music_init()
+        //{
+        //    if(e_desc != "")
+        //    {
+        //        document.title = e_desc.replace("<br>", "\n").replace("<br/>", "\n");;
+        //    }
+        //    else
+        //    {
+        //        document.title = "音乐相册";
+        //    }
+        //    loadingdiv_out();
+        //    create_music();
+        //    on_weixin_share();
+        //    setTimeout(get_address, 500);
+        //
+        //    if(wxid == 'zuiquan' || wxid == 'youran')
+        //        read_localstorage();
+        //    var locationurl = window.location.href;
+        //    // if(locationurl.indexOf('debug')!=-1)
+        //    // {
+        //    check_cookie();
+        //    // }
+        //
+        //    if(editmode == false)
+        //    {
+        //        var obj = document.getElementById("guanzhu_container");
+        //        obj.style.visibility = 'visible';
+        //        if(navigator.userAgent.match(/MicroMessenger/) == null)
+        //        {
+        //            obj.innerHTML = "点我更多精彩";
+        //            obj.style.display = 'none';
+        //        }
+        //
+        //        objid("jubao-click").style.display = "block";
+        //        //var obj = document.getElementById("kawa-youli");
+        //        //obj.style.visibility = 'visible';
+        //    }
+        //    var locationurl = window.location.href;
+        //    if(locationurl.indexOf('hidden')!=-1)
+        //    {
+        //        objid('guanzhu_container').style.display = 'none';
+        //    }
+        //
+        //
+        //    if(locationurl.indexOf('noshow')!=-1)
+        //    {
+        //        objid('guanzhu_container').style.display = 'none';
+        //    }
+        //
+        //    if(editmode == false && app == "xdxj")
+        //    {
+        //        objid('guanzhu_container').style.display = 'block';
+        //    }
+        //
+        //    checkletter();
+        //
+        //    if(tbssaveoff && isguangchang == "guangchang")
+        //    {
+        //        objid("saveoff").style.display = "block";
+        //    }
+        //}
 
-            if(wxid == 'zuiquan' || wxid == 'youran')
-                read_localstorage();
-            var locationurl = window.location.href;
-            // if(locationurl.indexOf('debug')!=-1)
-            // {
-            check_cookie();
-            // }
+       // call_me(on_wx_music_init);
 
-            if(editmode == false)
-            {
-                var obj = document.getElementById("guanzhu_container");
-                obj.style.visibility = 'visible';
-                if(navigator.userAgent.match(/MicroMessenger/) == null)
-                {
-                    obj.innerHTML = "点我更多精彩";
-                    obj.style.display = 'none';
-                }
-
-                objid("jubao-click").style.display = "block";
-                //var obj = document.getElementById("kawa-youli");
-                //obj.style.visibility = 'visible';
-            }
-            var locationurl = window.location.href;
-            if(locationurl.indexOf('hidden')!=-1)
-            {
-                objid('guanzhu_container').style.display = 'none';
-            }
-
-
-            if(locationurl.indexOf('noshow')!=-1)
-            {
-                objid('guanzhu_container').style.display = 'none';
-            }
-
-            if(editmode == false && app == "xdxj")
-            {
-                objid('guanzhu_container').style.display = 'block';
-            }
-
-            checkletter();
-
-            if(tbssaveoff && isguangchang == "guangchang")
-            {
-                objid("saveoff").style.display = "block";
-            }
-        }
-
-        call_me(on_wx_music_init);
-
-        //音乐播放
-
-        var music_header   = 'http://kawaweika.qiniudn.com/sound/';
-        var e_music_player = new Audio();
-        var mymusic;
-
-        function play_music()
-        {
-            if(e_music_url == '')
-            {
-                return ;
-            }
-
-            if(e_music_url.indexOf('qqmusic') != -1)
-            {
-                mymusic = 'https://qnphoto.kagirl.cn/music/688042.m4a';
-            }
-            else
-            {
-                mymusic = e_music_url;
-            }
-
-            e_music_player.src  = mymusic;
-            e_music_player.loop = 'loop';
-
-            console.log(e_music_player.src);
-            e_music_player.onerror = function(){
-                if(e_music_url.indexOf("http://sound.kagirl.net") != -1)
-                {
-                    var url = e_music_url.replace("http://sound.kagirl.net", "https://music.kagirl.cn");
-                }
-                else
-                {
-                    var url = e_music_url.replace("https://music.kagirl.cn", "http://sound.kagirl.net");
-                }
-
-                e_music_player.src = url;
-                e_music_player.play();
-                e_music_player.onerror = null;
-            }
-
-            e_music_player.play();
-
-            //检查音乐是否缓冲成功
-            setTimeout(function()
-            {
-                var timeRanges = e_music_player.buffered;
-                var timeBuffered = timeRanges.end(timeRanges.length - 1);
-                var bufferPercent = timeBuffered /e_music_player.duration;
-                console.log('music:'+bufferPercent);
-
-                if(isNaN(bufferPercent) || bufferPercent == 0)
-                {
-                    if(e_music_url.indexOf("http://sound.kagirl.net") != -1)
-                    {
-                        var url = e_music_url.replace("http://sound.kagirl.net", "http://kawaweika.qiniudn.com");
-                    }
-                    else
-                    {
-                        var url = e_music_url.replace("https://music.kagirl.cn", "http://sound.kagirl.net");
-                    }
-                    e_music_player.src = url;
-                    e_music_player.play();
-                }
-            },5000);
-
-
-            if(objid('sound_image'))
-            {
-                objid('sound_image').style.webkitAnimation     = "zhuan 1s linear infinite";
-            }
-
-            bplay = 1;
-        }
-
-        function create_music()
-        {
-            if(e_music_url == '')
-            {
-                return ;
-            }
-
-            play_music();
-
-            var sound_div = document.createElement("div");
-            sound_div.setAttribute("ID", "cardsound");
-            sound_div.style.cssText = "position:fixed;right:20px;top:25px;z-index:50;visibility:visible;";
-            sound_div.onclick = switchsound;
-
-            var bg_htm  = "<img id='sound_image' src='img/music_note_big.png' style='-webkit-animation:zhuan 1s linear infinite'>";
-            var txt_htm = "<div id='music_txt' style='color:white;position:absolute;left:-40px;top:30px;width:60px'></div>"
-
-            sound_div.innerHTML = bg_htm  + txt_htm;
-
-            document.body.appendChild(sound_div);
-        }
+        ////音乐播放
+        //
+        //var music_header   = 'http://kawaweika.qiniudn.com/sound/';
+        //var e_music_player = new Audio();
+        //var mymusic;
+        //
+        //function play_music()
+        //{
+        //    if(e_music_url == '')
+        //    {
+        //        return ;
+        //    }
+        //
+        //    if(e_music_url.indexOf('qqmusic') != -1)
+        //    {
+        //        mymusic = 'https://qnphoto.kagirl.cn/music/688042.m4a';
+        //    }
+        //    else
+        //    {
+        //        mymusic = e_music_url;
+        //    }
+        //
+        //    e_music_player.src  = mymusic;
+        //    e_music_player.loop = 'loop';
+        //
+        //    console.log(e_music_player.src);
+        //    e_music_player.onerror = function(){
+        //        if(e_music_url.indexOf("http://sound.kagirl.net") != -1)
+        //        {
+        //            var url = e_music_url.replace("http://sound.kagirl.net", "https://music.kagirl.cn");
+        //        }
+        //        else
+        //        {
+        //            var url = e_music_url.replace("https://music.kagirl.cn", "http://sound.kagirl.net");
+        //        }
+        //
+        //        e_music_player.src = url;
+        //        e_music_player.play();
+        //        e_music_player.onerror = null;
+        //    }
+        //
+        //    e_music_player.play();
+        //
+        //    //检查音乐是否缓冲成功
+        //    setTimeout(function()
+        //    {
+        //        var timeRanges = e_music_player.buffered;
+        //        var timeBuffered = timeRanges.end(timeRanges.length - 1);
+        //        var bufferPercent = timeBuffered /e_music_player.duration;
+        //        console.log('music:'+bufferPercent);
+        //
+        //        if(isNaN(bufferPercent) || bufferPercent == 0)
+        //        {
+        //            if(e_music_url.indexOf("http://sound.kagirl.net") != -1)
+        //            {
+        //                var url = e_music_url.replace("http://sound.kagirl.net", "http://kawaweika.qiniudn.com");
+        //            }
+        //            else
+        //            {
+        //                var url = e_music_url.replace("https://music.kagirl.cn", "http://sound.kagirl.net");
+        //            }
+        //            e_music_player.src = url;
+        //            e_music_player.play();
+        //        }
+        //    },5000);
+        //
+        //
+        //    if(objid('sound_image'))
+        //    {
+        //        objid('sound_image').style.webkitAnimation     = "zhuan 1s linear infinite";
+        //    }
+        //
+        //    bplay = 1;
+        //}
+        //
+        //function create_music()
+        //{
+        //    if(e_music_url == '')
+        //    {
+        //        return ;
+        //    }
+        //
+        //    play_music();
+        //
+        //    var sound_div = document.createElement("div");
+        //    sound_div.setAttribute("ID", "cardsound");
+        //    sound_div.style.cssText = "position:fixed;right:20px;top:25px;z-index:50;visibility:visible;";
+        //    sound_div.onclick = switchsound;
+        //
+        //    var bg_htm  = "<img id='sound_image' src='img/music_note_big.png' style='-webkit-animation:zhuan 1s linear infinite'>";
+        //    var txt_htm = "<div id='music_txt' style='color:white;position:absolute;left:-40px;top:30px;width:60px'></div>"
+        //
+        //    sound_div.innerHTML = bg_htm  + txt_htm;
+        //
+        //    document.body.appendChild(sound_div);
+        //}
 
         function loadingdiv_out()
         {
