@@ -26,7 +26,8 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         $.ajax({
             url:URL.baseURLForward+"/diary/tempinfo", // URL.baseURL9 + 'jijing_answers/web_mark',
             data: {
-                token:"人渣"
+                token:"人渣",
+                userid:localStorage.getItem("userId") || -1
             },
             dataType:"json",
             type: 'get',

@@ -20,7 +20,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         $(document).off("click",".musiclist_btn_false_js").on("click",".musiclist_btn_false_js",btnFalseClickFn);
     };
     var btnFalseClickFn = function (){
-        window.location.href=window.location.href.split("#")[0]+"#preview";
+        window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem("userId") || -1);
     }
     var btnTrueClickFn = function (){
         var musicItem= $(".musiclist_box>.active");
