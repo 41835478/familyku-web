@@ -50,7 +50,6 @@ $(".btn_prev").on("click",function(){
 	$(".photo_here:eq("+index+")").before(html);
 	pubu();
 	}
-	
 });
 $(".btn_next").on("click",function(){
 	var index=parseInt($(this).parents(".photo_here").index())+1;
