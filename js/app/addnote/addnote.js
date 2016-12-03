@@ -28,13 +28,19 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 success: function(data, status){
                     var thisdata = JSON.parse($(data).find("pre").html()).data[0];
                     var oldlist = localStorage.getItem('phoneList');
+                    var oldcommentlist=localStorage.getItem('commentList')
                     if(!oldlist || oldlist.length==0){
                         oldlist=[];
+                        oldcommentlist=[];
                     }else {
-                        oldlist = oldlist.split(',');
+                        oldlist = oldlist.split('<%%>');
+                        oldcommentlist=oldcommentlist.split("<%%>");
                     }
                     oldlist.push(thisdata);
-                    localStorage.setItem('phoneList',oldlist);
+                    oldcommentlist.push("");
+                    localStorage.setItem('phoneList',oldlist.join("<%%>"));
+                    localStorage.setItem('commentList',oldcommentlist.join("<%%>"));
+
                     renderContainer(oldlist);
                 }
             })
@@ -45,7 +51,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
 
     }
     var backUrl = function(){
-        var oldlist = localStorage.getItem('phoneList').split(',');
+        var oldlist = localStorage.getItem('phoneList').split("<%%>");
         if($('#photo > div').eq(1).hasClass('active')){
             $('#photoOne').addClass('active');
             $('#photoTwo').removeClass('active');
@@ -56,9 +62,19 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
     }
     var setPhoto = function(){
         var userid = 57 || localStorage.getItem('userId');
-        var oldarr = localStorage.getItem('phoneList').split(',');
+        var oldarr = localStorage.getItem('phoneList').split("<%%>");
+        var oldComent = localStorage.getItem('commentList').split("<%%>");
+        var newArr = [oldarr,oldComent]
+       /* var oldComment =
+        var randerData = [];
+        for(var i = 0; i < oldarr.length; i++){
+            var randerObj = {};
+                randerObj.img =
+        }*/
+
+
         if($('#photo div').eq(0).hasClass('active')){
-            renderContainertwo(oldarr);
+            renderContainertwo(newArr);
         }else{
           var divLength = $(".miaoshu_here textarea");
           var commentArr = [];
@@ -66,7 +82,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
               var val = $(divLength[i]).val();
               commentArr.push(val);
           }
-            localStorage.setItem('commentList',commentArr);
+            localStorage.setItem('commentList',commentArr.join("<%%>"));
             var imgArr = [];
             for(var i = 0; i < oldarr.length; i++){
                 var thisobj = {}
@@ -123,26 +139,27 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
     };
     var deleImg = function(){
         var index = $('.deleImg').attr('data-index');
-        var thisdata = localStorage.getItem('phoneList').split(',');
+        var thisdata = localStorage.getItem('phoneList').split("<%%>");
+        var thiscomment = localStorage.getItem('commentList').split("<%%>");
             thisdata.splice(index, 1);
-            localStorage.setItem('phoneList',thisdata);
+            thiscomment.splice(index,1);
+            localStorage.setItem('phoneList',thisdata.join("<%%>"));
+            localStorage.setItem('commentList',thiscomment.join("<%%>"));
             renderContainer(thisdata)
 
     }
     var requestPhotoList = function (){
-        $.ajax({
-            url:URL.baseURLForward+"diary/tempinfo?userid=1 ",
-            dataType:"json",
-            type: 'get',
-            success: function (res){
-                var thisdata = [];
-                $.each(res.data.images,function(i,v){
-                    thisdata.push(v.img);
-                })
-                renderContainer(thisdata);
-                localStorage.setItem('phoneList',thisdata);
-            }
-        });
+
+        localStorage.removeItem("phoneList");
+        localStorage.removeItem("commentList");
+        if(localStorage.getItem("tmp_img_url")){
+            localStorage.setItem('phoneList',localStorage.getItem("tmp_img_url"));
+            localStorage.setItem('commentList',localStorage.getItem("tmp_img_title"));
+
+        }
+        var tmpData=localStorage.getItem("tmp_img_url") ? localStorage.getItem("tmp_img_url").split("<%%>") : [];
+        renderContainer(tmpData);
+
     };
     var pubu = function (){
         var width=$("#photo").width()*.04;
@@ -165,14 +182,19 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
     }
     var thisprev = function(){
         var index=parseInt($(this).parents(".photo_here").index())-1;
-        var oldarr = localStorage.getItem('phoneList').split(',');
+        var oldarr = localStorage.getItem('phoneList').split("<%%>");
+        var oldcommentarr = localStorage.getItem('commentList').split("<%%>");
         if(index>0){
                 var temp1 = oldarr[index];
                 var temp2 = oldarr[index-1];
-
+                var temp_1=oldcommentarr[index];
+                var temp_2=oldcommentarr[index-1];
                 oldarr[index] = temp2;
                 oldarr[index-1] = temp1;
-            localStorage.setItem('phoneList',oldarr);
+                oldcommentarr[index]=temp_2;
+                oldcommentarr[index-1]=temp_1;
+            localStorage.setItem('phoneList',oldarr.join("<%%>"));
+            localStorage.setItem('commentList',oldcommentarr.join("<%%>"));
             renderContainer(oldarr);
             pubu();
         }
@@ -180,14 +202,20 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
     };
     var thisnext = function(){
         var index=parseInt($(this).parents(".photo_here").index())-1;
-        var oldarr = localStorage.getItem('phoneList').split(',');
+        var oldarr = localStorage.getItem('phoneList').split("<%%>");
+        var oldcommentarr = localStorage.getItem('commentList').split("<%%>");
         if(index<oldarr.length-1){
             var temp1 = oldarr[index];
             var temp2 = oldarr[index+1];
+            var temp_1=oldcommentarr[index];
+            var temp_2=oldcommentarr[index+1];
 
             oldarr[index] = temp2;
             oldarr[index+1] = temp1;
-            localStorage.setItem('phoneList',oldarr);
+            oldcommentarr[index]=temp_2;
+            oldcommentarr[index+1]=temp_1;
+            localStorage.setItem('phoneList',oldarr.join("<%%>"));
+            localStorage.setItem('commentList',oldcommentarr.join("<%%>"));
             renderContainer(oldarr);
             pubu();
         }
