@@ -35,6 +35,8 @@ html {
 .photo_here:last-child {
 	margin-bottom: .88rem;
 }
+.photo_here:nth-child(2) .btn_prev { display: none; }
+.photo_here:nth-child(2) .btn_next { display: block;  width: 100%; left: 0;}
 .photo_here>img {
 	float: left;
 	width: 100%;
@@ -100,6 +102,8 @@ html {
 .bottom_btnnn>span>i {
 	color: #FFFFFF;
 	font-size: .38rem;
+	display: block;
+	line-height: .88rem;
 }
 .ph_bottom .btn {
 	position: absolute;
