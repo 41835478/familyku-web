@@ -13,6 +13,8 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
     var initEvent = function(){
         $(document).off('click','.iadd_img').on('click','.add_img',addphoto);
         $(document).off('click','.deleImg').on('click','.deleImg',deleImg);
+        $(document).off('click','.btn_true').on('click','.btn_true',setPhoto);
+        $(document).off('click','.btn_false').on('click','.btn_false',backUrl);
         $(document).on('change','#addImg',function(){
             $.ajaxFileUpload({
                 url: URL.baseURLForward1 + 'api/images/upload',
@@ -40,6 +42,54 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
         $('#addImg').trigger('click');
 
     }
+    var backUrl = function(){
+        var oldlist = localStorage.getItem('phoneList').split(',');
+        if($('#photo > div').eq(1).hasClass('active')){
+            $('#photoOne').addClass('active');
+            $('#photoTwo').removeClass('active');
+            renderContainer(oldlist);
+        }else{
+            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem("userId") || -1);
+        }
+    }
+    var setPhoto = function(){
+        var userid = 57 || localStorage.getItem('userId');
+        var oldarr = localStorage.getItem('phoneList').split(',');
+        if($('#photo div').eq(0).hasClass('active')){
+            renderContainertwo(oldarr);
+        }else{
+          var divLength = $(".miaoshu_here textarea");
+          var commentArr = [];
+          for(var i = 0; i < divLength.length ; i++){
+              var val = $(divLength[i]).val();
+              commentArr.push(val);
+          }
+            localStorage.setItem('commentList',commentArr);
+            var imgArr = [];
+            for(var i = 0; i < oldarr.length; i++){
+                var thisobj = {}
+                thisobj.img = oldarr[i];
+                thisobj.title = commentArr[i];
+                imgArr.push(thisobj);
+            }
+            var obj = {
+                userid :userid,
+                images : imgArr
+            }
+            $.ajax({
+                url:URL.baseURLForward+"/diary/savetempimg",
+                data:JSON.stringify( obj),
+                contentType: 'application/json',
+                type: 'POST',
+                success: function (res){
+                    window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem("userId") || -1);
+                }
+            });
+        }
+
+
+
+    }
     var renderContainer = function (data){
         Render.render({
             wrap: $('#main_container'),
@@ -51,6 +101,20 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 setTimeout(function(){
                     pubu();
                 },10);
+            },
+
+        });
+    };
+    var renderContainertwo = function (data){
+        Render.render({
+            wrap: $('#main_container'),
+            tmpl: {
+                tmplName: TMPL.tmpl_addnote,
+                tmplData: data
+            },
+            afterRender: function () {
+                $('#photoOne').removeClass('active');
+                $('#photoTwo').addClass('active');
             },
 
         });
