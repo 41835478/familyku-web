@@ -7,6 +7,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         tmpl_saveNote: 'app/saveNote/tmpl_saveNote'
     }
     var init=function (){
+        Util.getDefaultAddress();
         initEvent();
         checkuser();
         renderContainer();
@@ -53,7 +54,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
               "title": photoTitle,
               "templateid": templateid,
               "musicid": musicid,
-              "city": "北京"
+              "city": localStorage.getItem(Final.ADDRESS_USER) || ""
           }
       }
         $.ajax({
@@ -62,7 +63,10 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
             contentType: 'application/json',
             type: 'POST',
             success: function (res){
-                backUrl();
+                if(res.code==Final.RESPONSE_STATUS.success){
+                    window.location.href=window.location.href.split("#")[0]+"#notelist";
+                }
+                //backUrl();
             }
         });
     };

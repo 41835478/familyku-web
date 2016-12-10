@@ -40,6 +40,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
                    if(data){
                        renderDefaultTmpl(data);
                        tmpSaveImgData(data.images);
+                       setDefaultPhoneList(data.images);
                        localStorage.setItem(Final.MUSIC_ID,data.music.id);
                        localStorage.setItem(Final.TMP_ID,data.template.id);
                    }
@@ -47,6 +48,17 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
             }
         });
     };
+    var setDefaultPhoneList = function (data){
+        if(data && data.length>0){
+            var tmpArray=[];
+            for(var i=0;i<data.length;i++){
+                tmpArray.push(data[i].img);
+            }
+            if(tmpArray.length>0){
+                localStorage.setItem(Final.PIC_LIST,tmpArray.join("<%%>"));
+            }
+        }
+    }
     var tmpSaveImgData = function (images){
         if(images.length>0){
             var tmp_img_url_array=[];

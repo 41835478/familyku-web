@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/lib/jquery/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=utUmNTL9kHAP26hwz3KuMAw07uEAxXKo"></script>
+
+    <script type="text/javascript">
+        var myGeo = new BMap.Geocoder();
+        var LocalCity = new BMap.LocalCity();
+        LocalCity.get(function (obj){
+            console.log(obj.name);
+        });
+        //var city=map.LocalCity();
+        //console.log(city);
+
+        // 将地址解析结果显示在地图上,并调整地图视野
+//        myGeo.getPoint("北京市海淀区上地10街", function(point){
+//            if (point) {
+//                var lng=point.lng;
+//                var lat=point.lat;
+//                debugger;
+//                $.getJSON('http://api.map.baidu.com/geocoder/v2/?ak='+'utUmNTL9kHAP26hwz3KuMAw07uEAxXKo'+'&callback=?&location='+lat+','+lng+'&output=json&pois=1', function(res){
+//                    //addressComponent => {city: "广州市", district: "天河区", province: "广东省", street: "广州大道", street_number: "中922号-之101-128"}
+//                    var city=res.result.addressComponent.city;
+//                    //localStorage.setItem(Final.ADDRESS_USER,city);
+//                    alert(city);
+//                    //$("#location").html(res.result.addressComponent.city);
+//                });
+//            }else{
+//                alert("您选择地址没有解析到结果!");
+//            }
+//        }, "北京市");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

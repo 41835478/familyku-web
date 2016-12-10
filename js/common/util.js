@@ -21,20 +21,31 @@ define(["app/baseFinal"], function (Final) {
      * 获取默认地址 异步 localstorage
      */
     getDefaultAddress :function (){
-        var lnglat=utilObj.getLngLat();
-        utilObj.getAddress(lnglat.lng,lnglat.lat);
+        var LocalCity = new BMap.LocalCity();
+        LocalCity.get(function (obj){
+            localStorage.setItem(Final.ADDRESS_USER,obj.name);
+        });
+        // var lnglat=utilObj.getLngLat();
+        // alert(lnglat);
+        // alert(lnglat.lng);
+        // utilObj.getAddress(lnglat.lng,lnglat.lat);
     },
     /**
      * 获取经纬度
      * @returns {*}
      */
     getLngLat : function (){
+        alert(-1)
       if(navigator){
-          var position=navigator.geolocation.getCurrentPosition();
-          var lat=position.coords.latitude;
-          var lng=position.coords.longitude;
-          return {lat:lat,lng:lng};
+            alert(navigator.geolocation);
+            //alert(navigator.geolocation.getCurrentPosition(utilObj.getAddress));
+          var position=navigator.geolocation.getCurrentPosition(utilObj.getAddress);
+          //var lat=position.coords.latitude;
+          //var lng=position.coords.longitude;
+          //alert(lat)
+          //return {lat:lat,lng:lng};
       }else {
+          alert(2)
           return false;
       }
     },
@@ -43,11 +54,14 @@ define(["app/baseFinal"], function (Final) {
      * @param lng
      * @param lat
      */
-    getAddress : function (lng,lat){
+    getAddress : function (position){
+        alert(1);
+        var lat=position.coords.latitude;
+        var lng=position.coords.longitude;
         var ak=Final.MAP_BAIDU_AK;
+        alert(lat,lng);
         $.getJSON('http://api.map.baidu.com/geocoder/v2/?ak='+ak+'&callback=?&location='+lat+','+lnt+'&output=json&pois=1', function(res){
             //addressComponent => {city: "广州市", district: "天河区", province: "广东省", street: "广州大道", street_number: "中922号-之101-128"}
-            alert(city);
             var city=res.result.addressComponent.city;
             localStorage.setItem(Final.ADDRESS_USER,city);
             alert(city);
