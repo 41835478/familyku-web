@@ -26,6 +26,11 @@ define(['jquery'], function($, Login, Render, URL) {
       Addnote.init({router:router});
     });
   }
+  var saveNote = function(){
+    require(['app/saveNote/saveNote'], function(saveNote) {
+      saveNote.init({router:router});
+    });
+  }
   var notelist = function (){
       require(['app/notelist/notelist'], function(NoteList) {
           NoteList.init({router:router});
@@ -59,7 +64,8 @@ define(['jquery'], function($, Login, Render, URL) {
     '/tmplist':tmplist,
     '/musiclist':musiclist,
     '/addnote':addnote,
-    '/notelist':notelist
+    '/notelist':notelist,
+    '/saveNote':saveNote,
     //'/send_order': send_order,
     //'/search_order': search_order,
     //'/control_center':control_center,
