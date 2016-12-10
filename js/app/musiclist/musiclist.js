@@ -26,8 +26,10 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         var musicItem= $(".musiclist_box>.active");
         if(musicItem.length>0){
             var musicSrc=musicItem.find(".audition_btn_js").attr("data-src");
-            if(musicSrc){
-                localStorage.setItem("musicSrc",musicSrc);
+            var musicId=musicItem.attr("data-musicId");
+            if(musicSrc && musicId){
+                localStorage.setItem(Final.MUSIC_SRC,musicSrc);
+                localStorage.setItem(Final.MUSIC_ID,musicId);
                 btnFalseClickFn();
             }
         }

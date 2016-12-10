@@ -2,7 +2,7 @@
  * Created by 321 on 2016/10/12.
  */
 'use strict'
-define(["./../../../js/common/render"],function (Render) {
+define(["./../../../js/common/render","./../../../js/app/baseFinal"],function (Render,Final) {
     var userData,
         TMPL = {
         tmpl_shuye: '/template/01_tmp_shuye/js/tmpl_shuye.js'
@@ -64,7 +64,7 @@ define(["./../../../js/common/render"],function (Render) {
         var date = 20161103;
         var zan_num = 0;
         var e_bookid = 'Fpx5HcVlzcptiKiQwQ9VHULpFle0vk3f';
-        var e_desc = '我是模版'+localStorage.getItem("familyku_tmpId");
+        var e_desc = '我是模版'+localStorage.getItem(Final.TMP_ID);
         var e_openid = null;
         var e_scene = 'rose';
         var editmode = false;

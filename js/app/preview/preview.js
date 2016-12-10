@@ -40,6 +40,8 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
                    if(data){
                        renderDefaultTmpl(data);
                        tmpSaveImgData(data.images);
+                       localStorage.setItem(Final.MUSIC_ID,data.music.id);
+                       localStorage.setItem(Final.TMP_ID,data.template.id);
                    }
                }
             }

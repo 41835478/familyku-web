@@ -22,7 +22,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal',"common/ut
     var tmpliClickFn = function (){
         var tmpId= $(this).attr("data-tmpId");
         if(tmpId){
-            localStorage.setItem("familyku_tmpId",tmpId);
+            localStorage.setItem(Final.TMP_ID,tmpId);
             console.log(tmpId);
             window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem("userId") || -1);;
         }

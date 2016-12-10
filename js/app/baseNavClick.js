@@ -1,9 +1,9 @@
 'use strict'
 
-define(['jquery'], function($, Login, Render, URL) {
+define(['jquery','app/baseFinal'], function($, Final) {
   var preview=function (userId){
     if(userId>-1){
-      localStorage.setItem("userId",userId);
+      localStorage.setItem(Final.USER_ID,userId);
     }
     console.log("require preview");
     require(['app/preview/preview'], function(Preview) {
