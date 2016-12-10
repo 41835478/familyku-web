@@ -1,6 +1,7 @@
 'use strict';
-define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function (Render, URL, BaseCookie, Final) {
+define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/util'], function (Render, URL, BaseCookie, Final,Util) {
     var init=function (){
+        Util.getDefaultAddress()
         initEvent();
     };
     var initEvent = function (){

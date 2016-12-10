@@ -8,9 +8,11 @@ define([''],function() {
 		RESPONSE_STATUS:{
 			success:200
 		},
-		MUSIC_ID:"imageId",
+		MUSIC_ID:"musicId",
 		MUSIC_SRC:"musicSrc",
-		TMP_ID:"tmpId"
+		TMP_ID:"tmpId",
+		MAP_BAIDU_AK:"utUmNTL9kHAP26hwz3KuMAw07uEAxXKo",
+		ADDRESS_USER:"addressUser"
 
 	}
 });

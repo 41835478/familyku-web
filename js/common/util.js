@@ -1,4 +1,4 @@
-define([], function () {
+define(["app/baseFinal"], function (Final) {
     var utilObj = {
         toDecimal2 : function(x) {
         var f = parseFloat(x);
@@ -16,6 +16,43 @@ define([], function () {
             s += '0';
         }
         return s;
+    },
+    /**
+     * 获取默认地址 异步 localstorage
+     */
+    getDefaultAddress :function (){
+        var lnglat=utilObj.getLngLat();
+        utilObj.getAddress(lnglat.lng,lnglat.lat);
+    },
+    /**
+     * 获取经纬度
+     * @returns {*}
+     */
+    getLngLat : function (){
+      if(navigator){
+          var position=navigator.geolocation.getCurrentPosition();
+          var lat=position.coords.latitude;
+          var lng=position.coords.longitude;
+          return {lat:lat,lng:lng};
+      }else {
+          return false;
+      }
+    },
+    /**
+     * 根据经纬度获取城市
+     * @param lng
+     * @param lat
+     */
+    getAddress : function (lng,lat){
+        var ak=Final.MAP_BAIDU_AK;
+        $.getJSON('http://api.map.baidu.com/geocoder/v2/?ak='+ak+'&callback=?&location='+lat+','+lnt+'&output=json&pois=1', function(res){
+            //addressComponent => {city: "广州市", district: "天河区", province: "广东省", street: "广州大道", street_number: "中922号-之101-128"}
+            alert(city);
+            var city=res.result.addressComponent.city;
+            localStorage.setItem(Final.ADDRESS_USER,city);
+            alert(city);
+            //$("#location").html(res.result.addressComponent.city);
+        });
     },
     shareCourse : function(productId,title,content,shareUrl,imageUrl){
             console.log("分享productId："+productId);
