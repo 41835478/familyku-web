@@ -1,4 +1,4 @@
-jQuery.cookie = function (key, value, options) {
+$.cookie = function (key, value, options) {
     if (arguments.length > 1 && (value === null || typeof value !== "object")) {
         options = jQuery.extend({}, options);
 

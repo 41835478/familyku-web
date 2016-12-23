@@ -47,8 +47,8 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         }
     }
     var musiclistItemClickFn = function (){
-        var musicId= $(this).attr("data-musicId")
-        console.log(musicId);
+        var musicId= $(this).attr("data-musicId");
+        // console.log(musicId);
         $(".musiclist_item_js").removeClass("active");
         $(this).addClass("active");
         // if(musicId){

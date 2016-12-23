@@ -13,7 +13,8 @@ define([''],function() {
 		TMP_ID:"tmpId",
 		MAP_BAIDU_AK:"utUmNTL9kHAP26hwz3KuMAw07uEAxXKo",
 		ADDRESS_USER:"addressUser",
-		PIC_LIST:"phoneList"
+		PIC_LIST:"phoneList",
+		NOTE_ID:"noteId"
 
 	}
 });

@@ -29,7 +29,7 @@ define ([], function () {
             '<span class="mesg_a">照片数量：5张</span><span class="mesg_b">2015-03-04 12:23</span>',
             '</div>',
             '<div class="xc_bot_btn">',
-            '<span data-id="{{item.id}}" class="btn_bj"><i class="iconfont icon-bianji"></i>编辑</span><span data-id="{{item.id}}" class="btn_sc"><i class="iconfont icon-lajitong"></i>删除</span>',
+            '<span data-id="{{item.id}}" class="btn_bj btn_edit_js"><i class="iconfont icon-bianji"></i>编辑</span><span data-id="{{item.id}}" class="btn_sc"><i class="iconfont icon-lajitong"></i>删除</span>',
             '</div>',
             '</div>',
             '</div>',

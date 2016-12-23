@@ -12,15 +12,23 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         requestNoteList();
     };
     var initEvent = function (){
-        //$(document).off("click",".musiclist_header_js").on("click",".musiclist_header_js",checkNavFn);
+        $(document).off("click",".btn_edit_js").on("click",".btn_edit_js",noteEditClikFn);
         //$(document).off("click",".tmplist_ul_js li").on("click",".musiclist_ul_js li",musiclistClickFn);
         //$(document).off("click",".musiclist_item_js").on("click",".musiclist_item_js",musiclistItemClickFn);
         //$(document).off("click",".audition_btn_js").on("click",".audition_btn_js",auditionFn);
         //$(document).off("click",".musiclist_btn_true_js").on("click",".musiclist_btn_true_js",btnTrueClickFn);
         //$(document).off("click",".musiclist_btn_false_js").on("click",".musiclist_btn_false_js",btnFalseClickFn);
     };
+    var noteEditClikFn = function (){
+        var userId=localStorage.getItem(Final.USER_ID);
+        var noteId=$(this).attr("data-id");
+        if(userId&& noteId){
+            window.tmpobj.noteId=noteId;
+            window.location.href=window.location.href.split("#")[0]+"#preview/"+userId;
+        }
+    };
     var btnFalseClickFn = function (){
-        window.location.href=window.location.href.split("#")[0]+"#preview";
+
     }
     var renderContainer = function (data){
         //debugger;

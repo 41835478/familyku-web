@@ -23,12 +23,15 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         });
     };
     var requestPhotos = function (){
+        var param ={};
+        param.token="人渣";
+        param.userid=localStorage.getItem("userId") || -1 ;
+        if(window.tmpobj.noteId){
+            param.diaryid=window.tmpobj.noteId;
+        }
         $.ajax({
             url:URL.baseURLForward+"/diary/tempinfo", // URL.baseURL9 + 'jijing_answers/web_mark',
-            data: {
-                token:"人渣",
-                userid:localStorage.getItem("userId") || -1
-            },
+            data: param,
             dataType:"json",
             type: 'get',
             //headers: {
