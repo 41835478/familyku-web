@@ -2,10 +2,11 @@
 
 require.config({
     baseUrl: '../js',
-    urlArgs:'ver=1.0.0.2',
+    urlArgs:'ver=1.0.0.6',
     paths: {
         jquery: 'lib/jquery/1.11.1',
         zepto: 'lib/zepto/zepto',
+        fastClick:'lib/fastclick/fastclick',
         render: 'common/render',
         uniqueAjax: 'common/uniqueAjax',
         responser: 'common/responser',
@@ -33,8 +34,12 @@ require([
     'app/baseNavClick',
     'jquery',
     'app/home/home',
+    'fastClick'
 
-], function(Director,BaseCookie,BaseNavClick,$,home) {
+], function(Director,BaseCookie,BaseNavClick,$,home,fastClick) {
+        fastClick.attach(document.body);
+        window.timerTmpArray=[];
+        window.tmpobj={}; //全局缓存变量
         home.init();
 
 

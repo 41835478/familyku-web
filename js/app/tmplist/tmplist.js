@@ -2,7 +2,7 @@
  * Created by 123 on 2016/11/15.
  */
 'use strict';
-define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function (Render, URL, BaseCookie, Final) {
+define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal',"common/util"], function (Render, URL, BaseCookie, Final,Util) {
     var TMPL = {
         tmpl_tmp: 'app/tmplist/tmpl_tmp',
         tmpl_tmp_item:'app/tmplist/tmpl_tmp_item'
@@ -13,14 +13,18 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
     };
     var initEvent = function (){
         $(document).off("click",".tmplist_header_js").on("click",".tmplist_header_js",checkNavFn);
-        $(document).off("click",".tmplist_ul_js li").on("click",".tmplist_ul_js li",tmpliClickFn)
+        $(document).off("click",".tmplist_ul_js li").on("click",".tmplist_ul_js li",tmpliClickFn);
+        $(document).off("clcik",".tmp_btn_false_js").on("click",".tmp_btn_false_js",btnFalseClickFn);
+    };
+    var btnFalseClickFn = function (){
+        window.location.href=window.location.href.split("#")[0]+"#/preview/"+(localStorage.getItem("userId") || -1);
     };
     var tmpliClickFn = function (){
         var tmpId= $(this).attr("data-tmpId");
         if(tmpId){
-            localStorage.setItem("familyku_tmpId",tmpId);
+            localStorage.setItem(Final.TMP_ID,tmpId);
             console.log(tmpId);
-            window.location.href=window.location.href.split("#")[0]+"#preview";
+            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem("userId") || -1);;
         }
     };
     var checkNavFn= function (){
@@ -116,12 +120,13 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         }
 
     };
-    var renderDefaultTmpl = function (data){
-        require(["./../template/01_tmp_shuye/js/shuye"],function(ShuYe) {
-            //var ShuYe = require();
-            ShuYe.init(data);
-        })
-    }
+    //var renderDefaultTmpl = function (data){
+    //    require(["./../template/01_tmp_shuye/js/shuye"],function(ShuYe) {
+    //        //var ShuYe = require();
+    //        Util.clearTimerTmp();
+    //        ShuYe.init(data);
+    //    })
+    //}
     return {
         init:init
     }

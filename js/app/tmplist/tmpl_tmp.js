@@ -14,6 +14,11 @@ define ([], function () {
         '<div class="big_box">',
 
         '</div>',
+    '<div class="bottom_btnnn">',
+        '<div class="bottom_btnnn_zd" style="opacity:0.5;"></div>',
+        '<span style="width:100%;" class="btn_false tmp_btn_false_js"><i class="iconfont icon-cuowu"></i></span>',
+        //'<span class="btn_true"><i class="iconfont icon-zhengque"></i></span>',
+        '</div>',
     '</div>',
     ].join('')
 })

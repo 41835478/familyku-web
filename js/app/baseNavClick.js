@@ -1,7 +1,10 @@
 'use strict'
 
-define(['jquery'], function($, Login, Render, URL) {
-  var preview=function (){
+define(['jquery','app/baseFinal'], function($, Final) {
+  var preview=function (userId){
+    if(userId>-1){
+      localStorage.setItem(Final.USER_ID,userId);
+    }
     console.log("require preview");
     require(['app/preview/preview'], function(Preview) {
       Preview.init({router:router});
@@ -22,6 +25,16 @@ define(['jquery'], function($, Login, Render, URL) {
     require(['app/addnote/addnote'], function(Addnote) {
       Addnote.init({router:router});
     });
+  }
+  var saveNote = function(){
+    require(['app/saveNote/saveNote'], function(saveNote) {
+      saveNote.init({router:router});
+    });
+  }
+  var notelist = function (){
+      require(['app/notelist/notelist'], function(NoteList) {
+          NoteList.init({router:router});
+      });
   }
   var initEvent = function() {
     //$(document).on('click', '#confirm_order_li', function () {
@@ -47,15 +60,17 @@ define(['jquery'], function($, Login, Render, URL) {
   }
   initEvent();
   var routes = {
-    '/preview':preview,
+    '/preview/:userId':preview,
     '/tmplist':tmplist,
     '/musiclist':musiclist,
     '/addnote':addnote,
+    '/notelist':notelist,
+    '/saveNote':saveNote,
     //'/send_order': send_order,
     //'/search_order': search_order,
     //'/control_center':control_center,
     //'/company_manager':company_manager
   }
   var router = Router(routes);
-  router.init('preview');
+  router.init('/preview/-1');
 })

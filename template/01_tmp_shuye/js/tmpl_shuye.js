@@ -159,9 +159,9 @@ define(function () {
     "<img id='xing1' src='/template/01_tmp_shuye/img/xingmang.png'>",
     "<img id='xing4' src='/template/01_tmp_shuye/img/xingmang.png'>",
 
-        "<div id='loadingdiv'>",
-        "<div class='loadingword'>相册正在加载中<br>请稍等……</div>",
-        "</div>"
+        // "<div id='loadingdiv'>",
+        // "<div class='loadingword'>相册正在加载中<br>请稍等……</div>",
+        // "</div>"
 
     ].join('')
 })
