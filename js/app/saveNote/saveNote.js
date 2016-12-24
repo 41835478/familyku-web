@@ -52,7 +52,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         });
     };
     var backUrl = function(){
-        window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem("userId") || -1);
+        window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);
     }
     var checkuser = function(){
         var userid = localStorage.getItem(Final.USER_ID);
@@ -63,7 +63,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         }
     }
     var postNote = function(){
-      var userid = localStorage.getItem(Final.USER_ID);
+      var userid = localStorage.getItem();
       var musicid = localStorage.getItem(Final.MUSIC_ID);
       var templateid = localStorage.getItem(Final.TMP_ID);
       var cover = localStorage.getItem('phoneList').split("<%%>")[0];
@@ -84,6 +84,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
       if(localStorage.getItem(Final.NOTE_ID)){
           obj.diary.id=localStorage.getItem(Final.NOTE_ID)
       }
+      alert(JSON.stringify( obj));
         $.ajax({
             url:URL.baseURLForward+"/diary/save",
             data:JSON.stringify( obj),

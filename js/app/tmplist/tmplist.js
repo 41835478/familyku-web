@@ -17,14 +17,14 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal',"common/ut
         $(document).off("clcik",".tmp_btn_false_js").on("click",".tmp_btn_false_js",btnFalseClickFn);
     };
     var btnFalseClickFn = function (){
-        window.location.href=window.location.href.split("#")[0]+"#/preview/"+(localStorage.getItem("userId") || -1);
+        window.location.href=window.location.href.split("#")[0]+"#/preview/"+(localStorage.getItem(Final.USER_ID) || -1);
     };
     var tmpliClickFn = function (){
         var tmpId= $(this).attr("data-tmpId");
         if(tmpId){
             localStorage.setItem(Final.TMP_ID,tmpId);
             console.log(tmpId);
-            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem("userId") || -1);;
+            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);;
         }
     };
     var checkNavFn= function (){

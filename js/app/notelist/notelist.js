@@ -81,7 +81,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         $.ajax({
             url:URL.baseURLForward+"diary/list", // URL.baseURL9 + 'jijing_answers/web_mark',
             data: {
-                userid:localStorage.getItem("userId") || -1
+                userid:localStorage.getItem(Final.USER_ID) || -1
             },
             dataType:"json",
             type: 'get',

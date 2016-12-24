@@ -11,13 +11,13 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
         requestPhotoList();
     };
     var initEvent = function(){
-        $(document).off('click','.iadd_img').on('click','.add_img',addphoto);
+        $(document).off('click','.add_img').on('click','.add_img',addphoto);
         $(document).off('click','.deleImg').on('click','.deleImg',deleImg);
         $(document).off('click','.btn_true').on('click','.btn_true',setPhoto);
         $(document).off('click','.btn_false').on('click','.btn_false',backUrl);
         $(document).off('click','.btn_prev').on('click','.btn_prev',thisprev);
         $(document).off('click','.btn_next').on('click','.btn_next',thisnext);
-        $(document).on('change','#addImg',function(){
+        $(document).off("change","#addImg").on('change','#addImg',function(){
             //alert(123);
             $.ajaxFileUpload({
                 url: URL.baseURLForward1 + 'api/images/upload',
@@ -60,17 +60,17 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
 
     }
     var backUrl = function(){
-        var oldlist = localStorage.getItem('phoneList').split("<%%>");
+        var oldlist = localStorage.getItem('phoneList') ? localStorage.getItem('phoneList').split("<%%>") : [] ;
         if($('#photo > div').eq(1).hasClass('active')){
             $('#photoOne').addClass('active');
             $('#photoTwo').removeClass('active');
             renderContainer(oldlist);
         }else{
-            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem("userId") || -1);
+            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);
         }
     }
     var setPhoto = function(){
-        var userid = 57 || localStorage.getItem('userId');
+        var userid = localStorage.getItem(Final.USER_ID);
         var oldarr = localStorage.getItem('phoneList').split("<%%>");
         var oldComent = localStorage.getItem('commentList').split("<%%>");
         var newArr = [oldarr,oldComent]
@@ -101,7 +101,11 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
             }
             var obj = {
                 userid :userid,
-                images : imgArr
+                images : imgArr,
+                diaryid:0
+            }
+            if(localStorage.getItem(Final.NOTE_ID)){
+                obj.diaryid=localStorage.getItem(Final.NOTE_ID)
             }
             $.ajax({
                 url:URL.baseURLForward+"/diary/savetempimg",
@@ -109,7 +113,9 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 contentType: 'application/json',
                 type: 'POST',
                 success: function (res){
-                    window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem("userId") || -1);
+                    alert(window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1));
+                    window.tmpobj.noteId=-1;
+                    window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);
                 }
             });
         }

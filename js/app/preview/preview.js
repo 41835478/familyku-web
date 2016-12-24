@@ -26,10 +26,16 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         var param ={};
         var url=URL.baseURLForward+"/diary/tempinfo"
         param.token="人渣";
-        param.userid=localStorage.getItem("userId") || -1 ;
-        if(localStorage.getItem(Final.NOTE_ID)){
+        param.userid=localStorage.getItem(Final.USER_ID) || -1 ;
+        //debugger;
+        if(localStorage.getItem(Final.NOTE_ID) && window.tmpobj && window.tmpobj.noteId==-1){
+            param.diaryid=localStorage.getItem(Final.NOTE_ID);
+            //url=URL.baseURLForward+"/diary/info"
+        }else if(localStorage.getItem(Final.NOTE_ID) && window.tmpobj && window.tmpobj.noteId){
             param.id=localStorage.getItem(Final.NOTE_ID);
             url=URL.baseURLForward+"/diary/info"
+        }else {
+            localStorage.removeItem(Final.NOTE_ID);
         }
         $.ajax({
             url:url, // URL.baseURL9 + 'jijing_answers/web_mark',
