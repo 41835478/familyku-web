@@ -18,6 +18,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
         $(document).off('click','.btn_prev').on('click','.btn_prev',thisprev);
         $(document).off('click','.btn_next').on('click','.btn_next',thisnext);
         $(document).on('change','#addImg',function(){
+            //alert(123);
             $.ajaxFileUpload({
                 url: URL.baseURLForward1 + 'api/images/upload',
                 type:"post",
@@ -26,6 +27,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 data: {apikey:'flzxsqcysyhljt',prefix:'jiajiaku'},
                 //dataType: 'json',
                 success: function(data, status){
+                    //alert($(data).find("body").html())
                     var thisdata = JSON.parse($(data).find("pre").html()).data[0];
                     var oldlist = localStorage.getItem('phoneList');
                     var oldcommentlist=localStorage.getItem('commentList')
@@ -42,12 +44,19 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                     localStorage.setItem('commentList',oldcommentlist.join("<%%>"));
 
                     renderContainer(oldlist);
+                },
+                error : function (){
+                    //alert("error");
                 }
             })
-        })
+            //alert(222);
+        });
+
     }
     var addphoto = function(){
-        $('#addImg').trigger('click');
+        //$('#addImg').trigger('click');
+        $("#addImg").triggerFastClick();
+
 
     }
     var backUrl = function(){
@@ -116,9 +125,15 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 tmplData: data
             },
             afterRender: function () {
-                setTimeout(function(){
-                    pubu();
-                },10);
+                // setTimeout(function(){
+                //     pubu();
+                // },10);
+                if(data.length>0){
+                    setTimeout(function(){
+                        pubu();
+                    },10);
+                }
+
             },
 
         });

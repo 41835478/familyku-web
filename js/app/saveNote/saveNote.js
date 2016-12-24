@@ -15,6 +15,29 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
     var initEvent = function(){
         $(document).off('click','#postNote').on('click','#postNote',postNote);
         $(document).off('click','#backUrl').on('click','#backUrl',backUrl);
+    };
+    var requestDiaryInfo = function (){
+        if(localStorage.getItem(Final.NOTE_ID)){
+            var param={};
+            param.id=localStorage.getItem(Final.NOTE_ID)
+            $.ajax({
+                url:URL.baseURLForward+"/diary/info", // URL.baseURL9 + 'jijing_answers/web_mark',
+                data: param,
+                dataType:"json",
+                type: 'get',
+                //headers: {
+                //    token:token
+                //},
+                success: function (response){
+                    if(response.code==Final.RESPONSE_STATUS.success){
+                        var data=response.data;
+                        $('#myPhotoT').val(data.diary.title);
+                        $('#myPhoneC').val(data.diary.info);
+
+                    }
+                }
+            });
+        }
     }
     var renderContainer = function (){
         Render.render({
@@ -24,8 +47,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
                 tmplData: ''
             },
             afterRender: function () {
-
-
+                requestDiaryInfo()
             }
         });
     };
@@ -46,16 +68,21 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
       var templateid = localStorage.getItem(Final.TMP_ID);
       var cover = localStorage.getItem('phoneList').split("<%%>")[0];
       var photoTitle = $('#myPhotoT').val();
-      var photoCom = $('#myPhotoC').val();
+      var photoCom = $('#myPhoneC').val();
       var obj = {
           "userid": userid,
           "diary": {
+              "id":0,
               "cover": cover,
               "title": photoTitle,
               "templateid": templateid,
               "musicid": musicid,
+              "info":photoCom,
               "city": localStorage.getItem(Final.ADDRESS_USER) || ""
           }
+      }
+      if(localStorage.getItem(Final.NOTE_ID)){
+          obj.diary.id=localStorage.getItem(Final.NOTE_ID)
       }
         $.ajax({
             url:URL.baseURLForward+"/diary/save",
@@ -64,6 +91,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
             type: 'POST',
             success: function (res){
                 if(res.code==Final.RESPONSE_STATUS.success){
+                    localStorage.removeItem(Final.NOTE_ID);
                     window.location.href=window.location.href.split("#")[0]+"#notelist";
                 }
                 //backUrl();

@@ -7,6 +7,7 @@ require.config({
         jquery: 'lib/jquery/1.11.1',
         zepto: 'lib/zepto/zepto',
         fastClick:'lib/fastclick/fastclick',
+        bootstrap:'lib/bootstrap.min',
         render: 'common/render',
         uniqueAjax: 'common/uniqueAjax',
         responser: 'common/responser',
@@ -33,10 +34,18 @@ require([
     'baseCookie',
     'app/baseNavClick',
     'jquery',
+    'bootstrap',
     'app/home/home',
     'fastClick'
 
-], function(Director,BaseCookie,BaseNavClick,$,home,fastClick) {
+], function(Director,BaseCookie,BaseNavClick,$,Bootstrap,home,fastClick) {
+        var notNeed = fastClick.notNeeded(document.body);
+        $.fn.triggerFastClick=function(){
+            this.trigger("click");
+            if(!notNeed){
+                this.trigger("click");
+            }
+        }
         fastClick.attach(document.body);
         window.timerTmpArray=[];
         window.tmpobj={}; //全局缓存变量
