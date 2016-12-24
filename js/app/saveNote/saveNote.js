@@ -63,7 +63,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         }
     }
     var postNote = function(){
-      var userid = localStorage.getItem();
+      var userid = localStorage.getItem(Final.USER_ID);
       var musicid = localStorage.getItem(Final.MUSIC_ID);
       var templateid = localStorage.getItem(Final.TMP_ID);
       var cover = localStorage.getItem('phoneList').split("<%%>")[0];
