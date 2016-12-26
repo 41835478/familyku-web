@@ -13,8 +13,8 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
     var initEvent = function(){
         $(document).off('click','.add_img').on('click','.add_img',addphoto);
         $(document).off('click','.deleImg').on('click','.deleImg',deleImg);
-        $(document).off('click','.btn_true').on('click','.btn_true',setPhoto);
-        $(document).off('click','.btn_false').on('click','.btn_false',backUrl);
+        $(document).off('click','.addnote_btn_true_js').on('click','.addnote_btn_true_js',setPhoto);
+        $(document).off('click','.addnote_btn_false_js').on('click','.addnote_btn_false_js',backUrl);
         $(document).off('click','.btn_prev').on('click','.btn_prev',thisprev);
         $(document).off('click','.btn_next').on('click','.btn_next',thisnext);
         $(document).off("change","#addImg").on('change','#addImg',function(){

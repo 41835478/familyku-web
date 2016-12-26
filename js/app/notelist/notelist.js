@@ -16,6 +16,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         $(document).off("click",".btn_edit_js").on("click",".btn_edit_js",noteEditClikFn);
         $(document).off("click",".btn_delete_js").on("click",".btn_delete_js",deleteNoteFn);
         $(document).off("click","#noteDeleteSure").on("click","#noteDeleteSure",deleteNoteRequest);
+
     };
     var deleteNoteRequest = function (){
         if(tmpNoteId){
@@ -70,6 +71,20 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
                 tmplData: data
             },
             afterRender: function () {
+                $(".xc_img_js img").load(function (){
+                    var width=$(".xc_img_js").width();
+                    var height=$(".xc_img_js").height();
+                    var imgWidth=$(this).get(0).naturalWidth;
+                    var imgHeight=$(this).get(0).naturalHeight;
+                    debugger;
+                    if(width/height>imgWidth/imgHeight){
+
+                        $(this).css("height",height);
+                    }else{
+                        $(this).css("width",width);
+                    }
+                    //$(this).width();
+                });
                 $('#sureDeleteModal').on('hidden.bs.modal', function () {
                     tmpNoteId=null;
                     requestNoteList();
@@ -89,6 +104,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
             //    token:token
             //},
             success: function (response){
+
                 if(response.code==Final.RESPONSE_STATUS.success){
                     var data=response.data;
                     if(data){

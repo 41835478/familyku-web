@@ -39,8 +39,8 @@ define ([], function () {
         '</div>',
         '<div class="bottom_btnnn">',
         '<div class="bottom_btnnn_zd" style="opacity: 0.5;"></div>',
-        '<span class="btn_false"><i class="iconfont icon-cuowu"></i></span>',
-        '<span class="btn_true"><i class="iconfont icon-zhengque"></i></span>',
+        '<span class="btn_false addnote_btn_false_js"><i class="iconfont icon-cuowu"></i></span>',
+        '<span class="btn_true addnote_btn_true_js"><i class="iconfont icon-zhengque"></i></span>',
         '</div>',
     ].join('')
 })
