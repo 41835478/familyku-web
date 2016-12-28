@@ -96,10 +96,11 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         }
     }
     var renderDefaultTmpl = function (data){
-        require(["./../template/01_tmp_shuye/js/shuye"],function(ShuYe) {
+        var tmpSrc=Final.TMPL_ID_MAPPING[data.template.id] || "./../template/03_tmp_sinian/js/sinian"
+        require([tmpSrc],function(TMPLOBJ) {
             //var ShuYe = require();
             Util.clearTimerTmp();
-            ShuYe.init(data);
+            TMPLOBJ.init(data);
             loadMusic(data);
         })
     }

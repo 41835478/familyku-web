@@ -78,7 +78,6 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
                     var imgHeight=$(this).get(0).naturalHeight;
                     debugger;
                     if(width/height>imgWidth/imgHeight){
-
                         $(this).css("height",height);
                     }else{
                         $(this).css("width",width);
