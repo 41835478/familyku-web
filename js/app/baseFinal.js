@@ -2,6 +2,7 @@
 
 define([''],function() {
 	return {
+		APPID:'wx7c03766dfc8fa1d3',
 		TOKEN:"token",
 		USER_NAME:"userName",
 		USER_ID:"userId",
@@ -21,7 +22,7 @@ define([''],function() {
 		TMPL_ID_MAPPING :{
 			1:"./../template/01_tmp_shuye/js/shuye",
             2:"./../template/02_tmp_xinnian/js/xinnian",
-            3:"./../template/02_tmp_sinian/js/sinian",
+            3:"./../template/03_tmp_sinian/js/sinian",
 		}
 
 	}

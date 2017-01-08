@@ -3,6 +3,7 @@
  */
 'use strict';
 define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function (Render, URL, BaseCookie, Final) {
+    var token =localStorage.getItem("token") || "";
     var TMPL = {
         tmpl_musiclist: 'app/musiclist/tmpl_musiclist',
         tmpl_musiclist_item:'app/musiclist/tmpl_musiclist_item'
@@ -20,7 +21,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         $(document).off("click",".musiclist_btn_false_js").on("click",".musiclist_btn_false_js",btnFalseClickFn);
     };
     var btnFalseClickFn = function (){
-        window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);
+        window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
     }
     var btnTrueClickFn = function (){
         var musicItem= $(".musiclist_box>.active");
@@ -108,7 +109,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         $.ajax({
             url:URL.baseURLForward+"/music/cate/list", // URL.baseURL9 + 'jijing_answers/web_mark',
             data: {
-                token:"人渣"
+                token:token || "人渣"
             },
             dataType:"json",
             type: 'get',
@@ -130,6 +131,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
             var data={}
             data.cateid=param.cateId;
             data.pageno=1;
+            data.token=token || "";
             $.ajax({
                 url:URL.baseURLForward+"/music/list", // URL.baseURL9 + 'jijing_answers/web_mark',
                 data: data,

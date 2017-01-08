@@ -3,6 +3,7 @@
  */
 'use strict';
 define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/util'], function (Render, URL, BaseCookie, Final,Util) {
+    var token=localStorage.getItem("token") || "";
     var TMPL = {
         tmpl_saveNote: 'app/saveNote/tmpl_saveNote'
     }
@@ -19,7 +20,8 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
     var requestDiaryInfo = function (){
         if(localStorage.getItem(Final.NOTE_ID)){
             var param={};
-            param.id=localStorage.getItem(Final.NOTE_ID)
+            param.id=localStorage.getItem(Final.NOTE_ID);
+            param.token=token;
             $.ajax({
                 url:URL.baseURLForward+"/diary/info", // URL.baseURL9 + 'jijing_answers/web_mark',
                 data: param,
@@ -82,9 +84,9 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
           }
       }
       if(localStorage.getItem(Final.NOTE_ID)){
-          obj.diary.id=localStorage.getItem(Final.NOTE_ID)
+          obj.diary.id=localStorage.getItem(Final.NOTE_ID);
       }
-      alert(JSON.stringify( obj));
+        obj.token=token;
         $.ajax({
             url:URL.baseURLForward+"/diary/save",
             data:JSON.stringify( obj),
@@ -93,7 +95,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
             success: function (res){
                 if(res.code==Final.RESPONSE_STATUS.success){
                     localStorage.removeItem(Final.NOTE_ID);
-                    window.location.href=window.location.href.split("#")[0]+"#notelist";
+                    window.location.href=window.location.href.split("#")[0]+"#notelist"+"/"+localStorage.getItem(Final.USER_ID)+"/"+localStorage.getItem("token");
                 }
                 //backUrl();
             }

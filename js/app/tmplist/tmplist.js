@@ -3,6 +3,7 @@
  */
 'use strict';
 define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal',"common/util"], function (Render, URL, BaseCookie, Final,Util) {
+    var token=localStorage.getItem("token") || "";
     var TMPL = {
         tmpl_tmp: 'app/tmplist/tmpl_tmp',
         tmpl_tmp_item:'app/tmplist/tmpl_tmp_item'
@@ -17,14 +18,14 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal',"common/ut
         $(document).off("clcik",".tmp_btn_false_js").on("click",".tmp_btn_false_js",btnFalseClickFn);
     };
     var btnFalseClickFn = function (){
-        window.location.href=window.location.href.split("#")[0]+"#/preview/"+(localStorage.getItem(Final.USER_ID) || -1);
+        window.location.href=window.location.href.split("#")[0]+"#/preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
     };
     var tmpliClickFn = function (){
         var tmpId= $(this).attr("data-tmpId");
         if(tmpId){
             localStorage.setItem(Final.TMP_ID,tmpId);
             console.log(tmpId);
-            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);;
+            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
         }
     };
     var checkNavFn= function (){
@@ -78,7 +79,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal',"common/ut
         $.ajax({
             url:URL.baseURLForward+"/template/cate/list", // URL.baseURL9 + 'jijing_answers/web_mark',
             data: {
-                token:"人渣"
+                token:token || "人渣"
             },
             dataType:"json",
             type: 'get',
@@ -100,6 +101,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal',"common/ut
             var data={}
             data.cateid=param.cateId;
             data.pageno=1;
+            data.token=token || "";
             $.ajax({
                 url:URL.baseURLForward+"/template/list", // URL.baseURL9 + 'jijing_answers/web_mark',
                 data: data,
