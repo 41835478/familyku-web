@@ -24,13 +24,21 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
     };
     var requestPhotos = function (){
         var param ={};
+        var url=URL.baseURLForward+"/diary/tempinfo"
         param.token="人渣";
-        param.userid=localStorage.getItem("userId") || -1 ;
-        if(window.tmpobj.noteId){
-            param.diaryid=window.tmpobj.noteId;
+        param.userid=localStorage.getItem(Final.USER_ID) || -1 ;
+        //debugger;
+        if(localStorage.getItem(Final.NOTE_ID) && window.tmpobj && window.tmpobj.noteId==-1){
+            param.diaryid=localStorage.getItem(Final.NOTE_ID);
+            //url=URL.baseURLForward+"/diary/info"
+        }else if(localStorage.getItem(Final.NOTE_ID) && window.tmpobj && window.tmpobj.noteId){
+            param.id=localStorage.getItem(Final.NOTE_ID);
+            url=URL.baseURLForward+"/diary/info"
+        }else {
+            localStorage.removeItem(Final.NOTE_ID);
         }
         $.ajax({
-            url:URL.baseURLForward+"/diary/tempinfo", // URL.baseURL9 + 'jijing_answers/web_mark',
+            url:url, // URL.baseURL9 + 'jijing_answers/web_mark',
             data: param,
             dataType:"json",
             type: 'get',
@@ -88,10 +96,11 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         }
     }
     var renderDefaultTmpl = function (data){
-        require(["./../template/01_tmp_shuye/js/shuye"],function(ShuYe) {
+        var tmpSrc=Final.TMPL_ID_MAPPING[data.template.id] || "./../template/03_tmp_sinian/js/sinian"
+        require([tmpSrc],function(TMPLOBJ) {
             //var ShuYe = require();
             Util.clearTimerTmp();
-            ShuYe.init(data);
+            TMPLOBJ.init(data);
             loadMusic(data);
         })
     }

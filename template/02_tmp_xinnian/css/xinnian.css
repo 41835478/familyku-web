@@ -1,0 +1,349 @@
+.showwords
+{
+    font-size: 23px;
+    color: black;
+    letter-spacing: 6px;
+    position: absolute;
+    font-weight: bold;
+    z-index: 1;
+    top: 83%;
+    margin: -39px;
+    left: 39px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-shadow: 3px 3px 20px white, -3px -3px 20px white, -3px 3px 20px white, 3px -3px 20px white;
+    /*background-color: rgba(255, 255, 255, 0.4);*/
+}
+
+*
+{
+    padding: 0px;
+    margin: 0px;
+    -webkit-box-sizing: border-box;
+}
+
+body
+{
+    background-color: black;
+}
+
+#container
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+#container > img,#container >div
+{
+    position: absolute;
+}
+#down1
+{
+    left: 0px;
+    top: 593px;
+    -webkit-transform-origin: 0% 100%;
+    opacity: 0;
+}
+#down2
+{
+    left: 150px;
+    top: 714px;
+    opacity: 0;
+}
+#up1
+{
+    left: -5px;
+    top: 0px;
+    opacity: 0;
+    -webkit-transform-origin: 0% 50%;
+    width: 354px;
+    height: 132px;
+}
+#up1>div,#div1>img
+{
+    position: absolute;
+}
+#denglong1
+{
+    left: 31px;
+    top: 50px;
+    width: 96px;
+    height: 179px;
+    -webkit-transform: translate(0px,0px) rotate(0deg);
+    -webkit-transform-origin: 50% 0%;
+}
+#denglong1>img
+{
+    position: absolute;
+    -webkit-transform-origin: 50% 0%;
+    -webkit-animation: denglongyao 1.5s ease-in-out infinite alternate;
+}
+#denglong2
+{
+    left: 222px;
+    top: 109px;
+    width: 61px;
+    height: 131px;
+    -webkit-transform: translate(0px,0px) rotate(0deg);
+    -webkit-transform-origin: 50% 0%;
+}
+#denglong2 >img
+{
+    position: absolute;
+    -webkit-transform-origin: 50% 0%;
+    -webkit-animation: denglongyao 1.5s 1.5s ease-in-out infinite alternate;
+}
+#zi2
+{
+    left: -30px;
+    top: 0px;
+    opacity: 0;
+}
+#zi0
+{
+    left: 81px;
+    top: 1px;
+    opacity: 0;
+}
+#zi1
+{
+    left: 228px;
+    top: 0px;
+    opacity: 0;
+}
+#zi6
+{
+    left: 291px;
+    top: 1px;
+    opacity: 0;
+}
+#houzi
+{
+    left: -50px;
+    top: -114px;
+    -webkit-transform: translate(-100px,0px) rotate(0deg);
+    width: 104px;
+    height: 143px;
+}
+#houziin
+{
+    -webkit-transform-origin: 50% 100%;
+    position: absolute;
+    -webkit-animation: houzi_yao 1s linear infinite alternate;
+}
+.xin
+{
+    position: absolute;
+    opacity: 0;
+}
+#zi>img
+{
+    position: absolute;
+}
+#zi
+{
+    left: 39px;
+    top: 300px;
+    width: 417px;
+    height: 134px;
+    -webkit-transform-origin: 50% 50%;
+}
+#word1
+{
+    left: 30px;
+    top: 397px;
+    background-color: #C1010D;
+    width: 10px;
+    height: 35px;
+    opacity: 0;
+}
+#upzi
+{
+    right:0px;
+    top: 10px;
+    width: 70px;
+}
+.divv
+{
+    /*width: 437px;*/
+    /*height: 580px;*/
+    width: 370px;
+    height: 500px;
+    left: 30px;
+    top: 103px;
+    overflow: hidden;
+    box-shadow: 3px 4px 13px #3C3B3B;
+    opacity: 0;
+}
+.divh
+{
+    /*width: 437px;*/
+    /*height: 309px;*/
+    width: 370px;
+    height: 260px;
+    left: 20px;
+    top: 235px;
+    overflow: hidden;
+    box-shadow: 3px 4px 13px #3C3B3B;
+    opacity: 0;
+}
+
+
+@-webkit-keyframes down1_in
+{
+    from  {-webkit-transform: scale(0.9);opacity: 0}
+    to    {-webkit-transform: scale(1);opacity: 1}
+}
+@-webkit-keyframes down2_in
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 0}
+    to    {-webkit-transform: translate(-50px,0px);opacity: 1}
+}
+@-webkit-keyframes denglongyao
+{
+    from  {-webkit-transform: rotate(-4deg);}
+    to    {-webkit-transofrm: rotate(4deg);}
+}
+@-webkit-keyframes denglong_in
+{
+    from  {-webkit-transform: rotate(30deg);opacity: 0}
+    to    {-webkit-transform: rotate(0deg);opacity: 1}
+}
+@-webkit-keyframes zi_in
+{
+    0%  {-webkit-transform: translate(0px,0px) scale(1,1);opacity: 0}
+    50% {-webkit-transform: translate(0px,-30px) scale(0.9,1.1);opacity: 0.5}
+    100%{-webkit-transform: translate(0px,0px) scale(1,1);opacity: 1}
+}
+@-webkit-keyframes zidiv_in
+{
+    from  {-webkit-transform: translate(0px,0px) scale(1,1);}
+    to    {-webkit-transform: translate(-60px,-55px) scale(0.7,0.7);}
+}
+@-webkit-keyframes houzi_in
+{
+    0%  {-webkit-transform: translate(-60px,394px) rotate(15deg);}
+    10% {-webkit-transform: translate(56px,353px) rotate(0deg);}
+    18% {-webkit-transform: translate(88px,401px)}
+    28% {-webkit-transform: translate(155px,360px)}
+    36% {-webkit-transform: translate(209px,398px)}
+    44% {-webkit-transform: translate(256px,356px)}
+    54% {-webkit-transform: translate(316px,402px)}
+    64% {-webkit-transform: translate(362px,358px)}
+    74% {-webkit-transform: translate(409px,401px)}
+    78% {-webkit-transform: translate(409px,407px)}
+    86% {-webkit-transform: translate(349px,341px)}
+    /*96% {-webkit-transform: translate(277px,594px)}*/
+    100%{-webkit-transform: translate(277px,724px)}
+}
+@-webkit-keyframes xin1
+{
+    from  {-webkit-transform: translate(20px,30px);opacity: 1}
+    to    {-webkit-transform: translate(0px,0px);opacity: 0}
+}
+@-webkit-keyframes xin2
+{
+    from  {-webkit-transform: translate(50px,35px) rotate(35deg);opacity: 1}
+    to    {-webkit-transform: translate(70px,5px) rotate(35deg);opacity: 0}
+}
+@-webkit-keyframes xin11
+{
+    0%    {-webkit-transform: translate(20px,30px);opacity: 1}
+    50%   {-webkit-transform: translate(0px,0px);opacity: 0}
+    100%  {-webkit-transform: translate(0px,0px);opacity: 0}
+}
+@-webkit-keyframes xin22
+{
+    0%   {-webkit-transform: translate(50px,35px) rotate(35deg);opacity: 1}
+    50%  {-webkit-transform: translate(70px,5px) rotate(35deg);opacity: 0}
+    100%  {-webkit-transform: translate(70px,5px) rotate(35deg);opacity: 0}
+}
+@-webkit-keyframes fadein
+{
+    from  {opacity: 0}
+    to    {opacity: 1}
+}
+@-webkit-keyframes title_in
+{
+    from  {-webkit-transform: translate(0px,50px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes title_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(-50px,0px);opacity: 0}
+}
+@-webkit-keyframes upzi_in
+{
+    from  {-webkit-transform: translate(0px,-20px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes zidiv_out
+{
+    0%  {-webkit-transform: translate(-60px,-55px) scale(0.7,0.7) skew(0deg);opacity: 1}
+    50% {-webkit-transform: translate(-60px,-55px) rotateX(90deg) scale(0.7,0.7) skew(-40deg);opacity: 0.5}
+    100% {-webkit-transform: translate(-60px,-55px) rotateX(180deg) scale(0.7,0.7) skew(0deg);opacity: 0}
+}
+@-webkit-keyframes houzi_yao
+{
+    from  {-webkit-transform: rotate(-5deg);}
+    to    {-webkit-transform: rotate(5deg);}
+}
+@-webkit-keyframes div1_in
+{
+    from  {-webkit-transform: scale(1.05);opacity: 0}
+    to    {-webkit-transform: scale(1);opacity: 1}
+}
+@-webkit-keyframes div1_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(0px,-30px);opacity: 0}
+}
+@-webkit-keyframes div2_in
+{
+    from  {-webkit-transform: translate(0px,30px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes div21_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(40px,0px);opacity: 0}
+}
+@-webkit-keyframes div22_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(-40px,0px);opacity: 0;}
+}
+@-webkit-keyframes div3_in
+{
+    from  {-webkit-transform: translate(0px,-50px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes div3_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(0px,20px);opacity: 0}
+}
+@-webkit-keyframes div41_in
+{
+    from  {-webkit-transform: translate(30px,0px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes div42_in
+{
+    from  {-webkit-transform: translate(-30px,0px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes div41_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(30px,0px);opacity: 0}
+}
+@-webkit-keyframes div42_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(-30px,0px);opacity: 0}
+}

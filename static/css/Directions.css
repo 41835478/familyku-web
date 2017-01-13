@@ -1,0 +1,9 @@
+.bz_box {  font-size: .26rem;}
+body,.bz_box { background: #ffefb1; padding-bottom: .4rem;}
+.banner_img { width: 100%;}
+.titile_bc { background: #e0a92a; margin-top: .6rem; position: relative; padding: 0 .4rem; color: #FFFFFF; height: .54rem; display: inline-block; line-height: .54rem; margin-left: .4rem; border-radius: .08rem;}
+.titile_bc>.left { position: absolute; left: 0; top: .06rem; width: .1rem;}
+.titile_bc>.right { position: absolute; right: 0; bottom: .06rem; width: .1rem; }
+.titile_bc>i { margin-left: .3rem;}
+.bz_mesg { margin: .3rem .6rem .4rem .6rem; color: #835905;}
+.bz_img { width: 70%; margin: 0 15%;}
