@@ -1,9 +1,12 @@
 'use strict'
 
 define(['jquery','app/baseFinal'], function($, Final) {
-  var preview=function (userId){
+  var preview=function (userId,token){
     if(userId>-1){
       localStorage.setItem(Final.USER_ID,userId);
+    }
+    if(token){
+      localStorage.setItem("token",token);
     }
     console.log("require preview");
     require(['app/preview/preview'], function(Preview) {
@@ -31,9 +34,14 @@ define(['jquery','app/baseFinal'], function($, Final) {
       saveNote.init({router:router});
     });
   }
-  var notelist = function (){
+  var notelist = function (userId,token){
       require(['app/notelist/notelist'], function(NoteList) {
-          NoteList.init({router:router});
+          var param={router:router};
+          if(userId&&token){
+            param.userId=userId;
+            param.token=token;
+          }
+          NoteList.init(param);
       });
   }
   var initEvent = function() {
@@ -60,11 +68,12 @@ define(['jquery','app/baseFinal'], function($, Final) {
   }
   initEvent();
   var routes = {
-    '/preview/:userId':preview,
+    '/preview/:userId/:token':preview,
     '/tmplist':tmplist,
     '/musiclist':musiclist,
     '/addnote':addnote,
     '/notelist':notelist,
+    '/notelist/:userId/:token':notelist,
     '/saveNote':saveNote,
     //'/send_order': send_order,
     //'/search_order': search_order,

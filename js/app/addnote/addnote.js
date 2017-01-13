@@ -3,6 +3,7 @@
  */
 'use strict';
 define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ajaxfileupload'], function (Render, URL, BaseCookie, Final) {
+    var token = localStorage.getItem("token") || "";
     var TMPL = {
         tmpl_addnote: 'app/addnote/tmpl_addnote'
     }
@@ -24,7 +25,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 type:"post",
                 secureuri: false,
                 fileElementId: 'addImg',
-                data: {apikey:'flzxsqcysyhljt',prefix:'jiajiaku'},
+                data: {apikey:'flzxsqcysyhljt',prefix:'jiajiaku',token:token},
                 //dataType: 'json',
                 success: function(data, status){
                     //alert($(data).find("body").html())
@@ -66,7 +67,11 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
             $('#photoTwo').removeClass('active');
             renderContainer(oldlist);
         }else{
+<<<<<<< HEAD
             window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);
+=======
+            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
+>>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
         }
     }
     var setPhoto = function(){
@@ -103,19 +108,32 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 userid :userid,
                 images : imgArr,
                 diaryid:0
+<<<<<<< HEAD
+            }
+            if(localStorage.getItem(Final.NOTE_ID)){
+                obj.diaryid=localStorage.getItem(Final.NOTE_ID)
+=======
+>>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
             }
             if(localStorage.getItem(Final.NOTE_ID)){
                 obj.diaryid=localStorage.getItem(Final.NOTE_ID)
             }
+            obj.token=token || "";
             $.ajax({
                 url:URL.baseURLForward+"/diary/savetempimg",
                 data:JSON.stringify( obj),
                 contentType: 'application/json',
                 type: 'POST',
                 success: function (res){
+<<<<<<< HEAD
                     alert(window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1));
                     window.tmpobj.noteId=-1;
                     window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);
+=======
+                    //alert(window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1));
+                    window.tmpobj.noteId=-1;
+                    window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");;
+>>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
                 }
             });
         }
@@ -159,7 +177,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
         });
     };
     var deleImg = function(){
-        var index = $('.deleImg').attr('data-index');
+        var index = $(this).attr('data-index');
         var thisdata = localStorage.getItem('phoneList').split("<%%>");
         var thiscomment = localStorage.getItem('commentList').split("<%%>");
             thisdata.splice(index, 1);
