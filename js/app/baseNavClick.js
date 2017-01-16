@@ -13,6 +13,11 @@ define(['jquery','app/baseFinal'], function($, Final) {
       Preview.init({router:router});
     })
   };
+  var share = function (diaryId){
+      require(['app/share/share'], function(Preview) {
+          Preview.init({router:router,diaryId:diaryId});
+      })
+  }
   var tmplist =function (){
     console.log("require tmplist");
     require(['app/tmplist/tmplist'], function(TmpList) {
@@ -69,6 +74,7 @@ define(['jquery','app/baseFinal'], function($, Final) {
   initEvent();
   var routes = {
     '/preview/:userId/:token':preview,
+    '/share/:diaryId':share,
     '/tmplist':tmplist,
     '/musiclist':musiclist,
     '/addnote':addnote,
