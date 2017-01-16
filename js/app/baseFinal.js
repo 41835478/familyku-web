@@ -22,11 +22,7 @@ define([''],function() {
 		TMPL_ID_MAPPING :{
 			1:"./../template/01_tmp_shuye/js/shuye",
             2:"./../template/02_tmp_xinnian/js/xinnian",
-<<<<<<< HEAD
-            3:"./../template/02_tmp_sinian/js/sinian",
-=======
             3:"./../template/03_tmp_sinian/js/sinian",
->>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
 		}
 
 	}

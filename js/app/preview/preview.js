@@ -26,11 +26,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
     var requestPhotos = function (){
         var param ={};
         var url=URL.baseURLForward+"/diary/tempinfo"
-<<<<<<< HEAD
-        param.token="人渣";
-=======
         param.token=token || "人渣";
->>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
         param.userid=localStorage.getItem(Final.USER_ID) || -1 ;
         //debugger;
         if(localStorage.getItem(Final.NOTE_ID) && window.tmpobj && window.tmpobj.noteId==-1){
