@@ -21,11 +21,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         $(document).off("click",".musiclist_btn_false_js").on("click",".musiclist_btn_false_js",btnFalseClickFn);
     };
     var btnFalseClickFn = function (){
-<<<<<<< HEAD
-        window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);
-=======
         window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
->>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
     }
     var btnTrueClickFn = function (){
         var musicItem= $(".musiclist_box>.active");

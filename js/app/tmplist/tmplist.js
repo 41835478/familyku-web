@@ -18,22 +18,14 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal',"common/ut
         $(document).off("clcik",".tmp_btn_false_js").on("click",".tmp_btn_false_js",btnFalseClickFn);
     };
     var btnFalseClickFn = function (){
-<<<<<<< HEAD
-        window.location.href=window.location.href.split("#")[0]+"#/preview/"+(localStorage.getItem(Final.USER_ID) || -1);
-=======
         window.location.href=window.location.href.split("#")[0]+"#/preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
->>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
     };
     var tmpliClickFn = function (){
         var tmpId= $(this).attr("data-tmpId");
         if(tmpId){
             localStorage.setItem(Final.TMP_ID,tmpId);
             console.log(tmpId);
-<<<<<<< HEAD
-            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);;
-=======
             window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
->>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
         }
     };
     var checkNavFn= function (){

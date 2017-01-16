@@ -67,11 +67,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
             $('#photoTwo').removeClass('active');
             renderContainer(oldlist);
         }else{
-<<<<<<< HEAD
-            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);
-=======
             window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
->>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
         }
     }
     var setPhoto = function(){
@@ -108,12 +104,9 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 userid :userid,
                 images : imgArr,
                 diaryid:0
-<<<<<<< HEAD
             }
             if(localStorage.getItem(Final.NOTE_ID)){
                 obj.diaryid=localStorage.getItem(Final.NOTE_ID)
-=======
->>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
             }
             if(localStorage.getItem(Final.NOTE_ID)){
                 obj.diaryid=localStorage.getItem(Final.NOTE_ID)
@@ -125,15 +118,9 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
                 contentType: 'application/json',
                 type: 'POST',
                 success: function (res){
-<<<<<<< HEAD
-                    alert(window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1));
-                    window.tmpobj.noteId=-1;
-                    window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);
-=======
                     //alert(window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1));
                     window.tmpobj.noteId=-1;
-                    window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");;
->>>>>>> 14628d7194b36db9b69f1aa20e872bd698168588
+                    window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
                 }
             });
         }
