@@ -100,6 +100,9 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
                 tmplData: data
             },
             afterRender: function () {
+            		if($(".xc_here").length()==0){
+            			$("#xiangce").show();
+            		}
                 $(".xc_img_js img").load(function (){
                     var width=$(".xc_img_js").width();
                     var height=$(".xc_img_js").height();

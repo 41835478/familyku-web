@@ -75,7 +75,7 @@ body {
 	right: 0;
 }
 /*适配*/
-
+#xiangce { display: none;}
 @media screen and (min-width: 255px) {
 	html {
 		font-size: 44px;

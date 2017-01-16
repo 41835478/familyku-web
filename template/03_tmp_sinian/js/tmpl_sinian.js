@@ -1,6 +1,6 @@
 define(function () {
     return[
-       '<img src="/template/03_tmp_sinian/img/bg.jpg">',
+       '<img id="bc_img" src="/template/03_tmp_sinian/img/bg.jpg">',
        '<div id="page11h" style="display:none">',
        '<div style="position:absolute;width:368px;height:256px;top:7px;left:7px;overflow:hidden;">',
        '<img id="img11h" style="position:absolute">',

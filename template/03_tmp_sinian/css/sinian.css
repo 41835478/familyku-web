@@ -454,15 +454,17 @@ body
     top: 0px;
     left: 0px;
     width: 500px;
-    height: 815px;
+    height: 100%;
     background-color: rgba(0,0,0,0.5);
 }
+#bc_img { height: 100%;}
+/*#titleword1 { font-size: 30px; width: 100%; text-align: center;}*/
 #pageword1
 {
     position: absolute;
     font-size: 40px;
     color: #fff;
-    width: 500px;
+    width: 100%;
     padding: 12px;
     line-height: 150%;
     text-align: center;
@@ -474,9 +476,9 @@ body
 #pagewordin1
 {
     position: absolute;
-    font-size: 40px;
+    font-size: 20px;
     color: #fff;
-    width: 500px;
+    width: 100%;
     /*padding: 12px;*/
     /*line-height: 150%;*/
     text-align: center;

@@ -16,6 +16,9 @@
     font-weight: bold;
     letter-spacing: 5px;
 }
+html,body { height: 100%;}
+#word2 { display:none;}
+#bc_img { height: 100%; width:100%;}
 #ye1
 {
     left: -42px;
@@ -56,7 +59,7 @@
 {
     width: 97px;
     height: 179px;
-    top: 546px;
+    top: 620px;
     left: 354px;
     -webkit-transform-origin:100% 100%;
     -webkit-animation: yezi3 4s cubic-bezier(.27,0,.78,1) infinite alternate;
@@ -82,7 +85,7 @@
 #yedi
 {
     left: 0px;
-    top: 680px;
+    bottom: 0px;
 }
 #xing1
 {

@@ -1,6 +1,6 @@
 define(function () {
     return[
-    "<img src='/template/01_tmp_shuye/img/bg1.jpg'>",
+    "<img id='bc_img' src='/template/01_tmp_shuye/img/bg1.jpg'>",
     "<img id='ye3' src='/template/01_tmp_shuye/img/ye03.png'>",
     "<img id='ye5' src='/template/01_tmp_shuye/img/ye03.png'>",
     "<img id='ye2' src='/template/01_tmp_shuye/img/ye02.png'>",

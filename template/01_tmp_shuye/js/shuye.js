@@ -64,7 +64,7 @@ define(["./../../../js/common/render","./../../../js/app/baseFinal"],function (R
         var date = 20161103;
         var zan_num = 0;
         var e_bookid = 'Fpx5HcVlzcptiKiQwQ9VHULpFle0vk3f';
-        var e_desc = '我是模版'+localStorage.getItem(Final.TMP_ID);
+        var e_desc = '我的小记';
         var e_openid = null;
         var e_scene = 'rose';
         var editmode = false;

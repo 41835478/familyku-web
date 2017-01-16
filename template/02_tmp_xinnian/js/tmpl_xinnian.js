@@ -1,6 +1,6 @@
 define(function () {
     return[
-        '<img src="/template/02_tmp_xinnian/img/bg.jpg">',
+        '<img id="bc_img" src="/template/02_tmp_xinnian/img/bg.jpg">',
         '<div id="div1v" class="divv" style="display:none">',
         '<img id="img1v" >',
         '<span id="word1v" class="showwords"></span>',
