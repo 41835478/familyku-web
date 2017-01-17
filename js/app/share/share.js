@@ -21,6 +21,19 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
     var initEvent = function (){
         $(document).off("click",".share_menu_js").on("click",".share_menu_js",showShareCover);
         $(document).off("click","#cover").on("click","#cover",showShareCover);
+        $(document).off("click",".createAgain_js").on("click",".createAgain_js",createAgainFn);
+        $(document).off("click",".showMyList_js").on("click",".showMyList_js",showMyListFn)
+    }
+    var clearLocalStorage = function (){
+        localStorage.removeItem(Final.TMP_ID);
+        localStorage.removeItem(Final.PIC_LIST);
+    }
+    var createAgainFn = function (){
+        clearLocalStorage();
+        window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
+    }
+    var showMyListFn = function (){
+        window.location.href=window.location.href.split("#")[0]+"#notelist/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
     }
     var  showShareCover= function (){
         if($("#cover").is(":hidden")){
@@ -85,10 +98,10 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
                            $("#thirdDiv").show();
                        }
                        renderDefaultTmpl(data);
-                       tmpSaveImgData(data.images);
-                       setDefaultPhoneList(data.images);
-                       localStorage.setItem(Final.MUSIC_ID,data.music.id);
-                       localStorage.setItem(Final.TMP_ID,data.template.id);
+                       // tmpSaveImgData(data.images);
+                       // setDefaultPhoneList(data.images);
+                       // localStorage.setItem(Final.MUSIC_ID,data.music.id);
+                       // localStorage.setItem(Final.TMP_ID,data.template.id);
                    }
                }
             }
@@ -123,15 +136,12 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
 
     }
     var loadMusic = function (data){
-        var locationMusicSrc = localStorage.getItem("musicSrc");
-        if(locationMusicSrc){
-            Util.musicPlay("tmpAudio",locationMusicSrc,"loop");
-        }else if(data.music){
+        if(data.music){
             Util.musicPlay("tmpAudio",data.music.linkaddr,"loop");
         }
     }
     var renderDefaultTmpl = function (data){
-        var tmpSrc=Final.TMPL_ID_MAPPING[data.template.id] || "./../template/03_tmp_sinian/js/sinian"
+        var tmpSrc=Final.TMPL_ID_MAPPING[data.diary.templateid] || "./../template/03_tmp_sinian/js/sinian"
         require([tmpSrc],function(TMPLOBJ) {
             //var ShuYe = require();
             Util.clearTimerTmp();

@@ -12,6 +12,7 @@ define([''],function() {
 		MUSIC_ID:"musicId",
 		MUSIC_SRC:"musicSrc",
 		TMP_ID:"tmpId",
+        TMP_ID_DEFAULT:"tmpId_default",
 		MAP_BAIDU_AK:"utUmNTL9kHAP26hwz3KuMAw07uEAxXKo",
 		ADDRESS_USER:"addressUser",
 		PIC_LIST:"phoneList",

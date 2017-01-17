@@ -148,11 +148,12 @@
         var blob = getBlob([buffer], type);
         var xhr = new XMLHttpRequest();
         var formdata = getFormData();
-        formdata.append('file', blob);
+        //formdata.append('file', blob);
+        formdata.append('file', basestr);
         formdata.append('apikey','flzxsqcysyhljt');
             formdata.append('prefix','jiajiaku');
         xhr.open('post', '/action1/api/images/upload');
-        xhr.setRequestHeader("Content-Type", "multipart/form-data;boundary=----WebKitFormBoundaryxqUFQPZ9nNIVJ1be");
+       // xhr.setRequestHeader("Content-Type", "multipart/form-data;boundary=----WebKitFormBoundaryxqUFQPZ9nNIVJ1be");
         //xhr.setRequestHeader("Connection", "keep-alive;");
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {

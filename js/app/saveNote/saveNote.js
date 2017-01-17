@@ -54,12 +54,13 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         });
     };
     var backUrl = function(){
-        window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1);
+        window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
     }
     var checkuser = function(){
         var userid = localStorage.getItem(Final.USER_ID);
         var musicid = localStorage.getItem(Final.MUSIC_ID);
-        var templateid = localStorage.getItem(Final.TMP_ID);
+        debugger;
+        var templateid = localStorage.getItem(Final.TMP_ID)=='undefined' ? localStorage.getItem(Final.TMP_ID_DEFAULT) : localStorage.getItem(Final.TMP_ID);
         if(!userid || !musicid || !templateid){
             backUrl();
         }
@@ -67,7 +68,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
     var postNote = function(){
       var userid = localStorage.getItem(Final.USER_ID);
       var musicid = localStorage.getItem(Final.MUSIC_ID);
-      var templateid = localStorage.getItem(Final.TMP_ID);
+      var templateid = localStorage.getItem(Final.TMP_ID)=='undefined' ? localStorage.getItem(Final.TMP_ID_DEFAULT) : localStorage.getItem(Final.TMP_ID);
       var cover = localStorage.getItem('phoneList').split("<%%>")[0];
       var photoTitle = $('#myPhotoT').val();
       var photoCom = $('#myPhoneC').val();
@@ -95,7 +96,8 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
             success: function (res){
                 if(res.code==Final.RESPONSE_STATUS.success){
                     localStorage.removeItem(Final.NOTE_ID);
-                    window.location.href=window.location.href.split("#")[0]+"#notelist"+"/"+localStorage.getItem(Final.USER_ID)+"/"+localStorage.getItem("token");
+                    localStorage.removeItem(Final.PIC_LIST);
+                    window.location.href=window.location.href.split("#")[0]+"#share"+"/"+res.diaryid
                 }
                 //backUrl();
             }

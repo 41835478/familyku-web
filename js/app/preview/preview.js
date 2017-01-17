@@ -54,7 +54,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
                        tmpSaveImgData(data.images);
                        setDefaultPhoneList(data.images);
                        localStorage.setItem(Final.MUSIC_ID,data.music.id);
-                       localStorage.setItem(Final.TMP_ID,data.template.id);
+                       localStorage.setItem(Final.TMP_ID_DEFAULT,data.template.id);
                    }
                }
             }
@@ -97,7 +97,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         }
     }
     var renderDefaultTmpl = function (data){
-        var tmpSrc=Final.TMPL_ID_MAPPING[data.template.id] || "./../template/03_tmp_sinian/js/sinian"
+        var tmpSrc=Final.TMPL_ID_MAPPING[localStorage.getItem(Final.TMP_ID) || data.template.id] || "./../template/04_tmp_daji/js/daji"
         require([tmpSrc],function(TMPLOBJ) {
             //var ShuYe = require();
             Util.clearTimerTmp();

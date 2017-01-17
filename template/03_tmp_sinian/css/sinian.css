@@ -182,7 +182,7 @@ body
 {
     0%  {-webkit-transform: scale(1,1);}
     4%  {-webkit-transform: scale(1,0.2)}
-    8%  {-webkit-transform: scale(1),1;}
+    8%  {-webkit-transform: scale(1,1);}
     12%  {-webkit-transform: scale(1,0.2)}
     16%  {-webkit-transform: scale(1,1);}
     20%  {-webkit-transform: scale(1,0.2)}
@@ -195,7 +195,7 @@ body
     48%  {-webkit-transform: scale(1,1);}
     52%  {-webkit-transform: scale(1,0.2)}
     57%  {-webkit-transform: scale(1,1);}
-    63%  {-webkit-transform: scale(1,0.2)-webkit-timing-function: ease-out;}
+    63%  {-webkit-transform: scale(1,0.2);-webkit-timing-function: ease-out;}
     69%  {-webkit-transform: scale(1);}
     80%  {-webkit-transform: scale(1,1);}
     85%  {-webkit-transform: scale(1,0.2)}
