@@ -60,14 +60,14 @@ html {
 	font-size: 50px;
 	height: 100%;
 	background-color: #FFFFFF;
-	max-width: 414px;
+	max-width: 500px;
 }
 body {
 	font-family: "PingFang SC", "Noto sans CJK SC", helvetica, "microsoft yahei", arial, sans-serif;
 	background: #fff;
 	overflow-x: hidden;
 	-webkit-text-size-adjust: none;
-	/*max-width: 414px;*/
+	/*max-width: 500px;*/
 	margin: 0 auto;
 	height: 100%;
 	position: absolute;
@@ -75,7 +75,7 @@ body {
 	right: 0;
 }
 /*适配*/
-#xiangce { display: none;}
+.kongbai { display: none;}
 @media screen and (min-width: 255px) {
 	html {
 		font-size: 44px;

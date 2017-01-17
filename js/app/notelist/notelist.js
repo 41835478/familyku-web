@@ -101,7 +101,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
             },
             afterRender: function () {
             		if($(".xc_here").length()==0){
-            			$("#xiangce").show();
+            			$(".kongbai").show();
             		}
                 $(".xc_img_js img").load(function (){
                     var width=$(".xc_img_js").width();
