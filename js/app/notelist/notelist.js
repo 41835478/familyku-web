@@ -100,7 +100,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
                 tmplData: data
             },
             afterRender: function () {
-            		if($(".xc_here").length()==0){
+            		if($(".xc_here").length==0){
             			$(".kongbai").show();
             		}
                 $(".xc_img_js img").load(function (){

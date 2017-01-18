@@ -74,53 +74,12 @@ body {
 	left: 0;
 	right: 0;
 }
-/*适配*/
-.kongbai { display: none;}
-@media screen and (min-width: 255px) {
-	html {
-		font-size: 44px;
-	}
-}
-@media screen and (min-width: 295px) {
-	html {
-		font-size: 44px;
-	}
-}
-@media screen and (min-width: 335px) {
-	html {
-		font-size: 50px;
-	}
-}
-@media screen and (min-width: 375px) {
-	html {
-		font-size: 50px;
-	}
-}
-@media screen and (min-width: 410px) {
-	html {
-		font-size: 50px;
-	}
-}
-@media screen and (min-width: 450px) {
-	html {
-		font-size: 50px;
-	}
-}
-@media screen and (min-width: 490px) {
-	html {
-		font-size: 50px;
-	}
-}
-@media screen and (min-width: 530px) {
-	html {
-		font-size: 50px;
-	}
-}
 .gloab_box {
 	position: relative;
 	overflow: hidden;
 	font-size: .24rem;
 }
+
 .kongbai{
 	position: absolute;
 	width: 100%;
