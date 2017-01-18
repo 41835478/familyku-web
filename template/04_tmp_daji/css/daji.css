@@ -152,8 +152,7 @@
     from  {-webkit-transform: translate(0px,-100px);opacity: 0}
     to    {-webkit-transform: translate(0px,0px);opacity: 1}
 }
-</style>
-  <style type="text/css">
+
 @-webkit-keyframes  yunmove
 {
     from  {-webkit-transform: translate(0px,0px);}

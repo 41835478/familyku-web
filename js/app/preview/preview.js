@@ -97,7 +97,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         }
     }
     var renderDefaultTmpl = function (data){
-        var tmpSrc=Final.TMPL_ID_MAPPING[localStorage.getItem(Final.TMP_ID) || data.template.id] || "./../template/04_tmp_daji/js/daji"
+        var tmpSrc=Final.TMPL_ID_MAPPING[localStorage.getItem(Final.TMP_ID) || data.template.id] || "./../template/05_tmp_birthday/js/birthday"
         require([tmpSrc],function(TMPLOBJ) {
             //var ShuYe = require();
             Util.clearTimerTmp();

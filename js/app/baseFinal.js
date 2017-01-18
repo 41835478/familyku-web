@@ -24,6 +24,13 @@ define([''],function() {
 			1:"./../template/01_tmp_shuye/js/shuye",
             2:"./../template/02_tmp_xinnian/js/xinnian",
             3:"./../template/03_tmp_sinian/js/sinian",
+            4:"./../template/04_tmp_daji/js/daji",
+            5:"./../template/05_tmp_birthday/js/birthday",
+            6:"./../template/06_tmp_iloveu/js/iloveu",
+            7:"./../template/07_tmp_children/js/children",
+            8:"./../template/08_tmp_childtown/js/childtown",
+            9:"./../template/09_tmp_flower/js/flower",
+            10:"./../template/10_tmp_students/js/students",
 		}
 
 	}
