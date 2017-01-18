@@ -43,7 +43,14 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         $(document).off("click",".btn_edit_js").on("click",".btn_edit_js",noteEditClikFn);
         $(document).off("click",".btn_delete_js").on("click",".btn_delete_js",deleteNoteFn);
         $(document).off("click","#noteDeleteSure").on("click","#noteDeleteSure",deleteNoteRequest);
+        $(document).off("click",".xc_img_js").on("click",".xc_img_js",showShareFn);
 
+    };
+    var showShareFn = function (){
+       var id=$(this).attr("data-id");
+       if(id){
+           window.location.href=window.location.href.split("#")[0]+"#share/"+id;
+       }
     };
     var deleteNoteRequest = function (){
         if(tmpNoteId){
@@ -64,9 +71,9 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
                 success: function (response){
                     if(response.code==Final.RESPONSE_STATUS.success){
                         $("#sureDeleteModal").modal("hide");
-                        // window.setTimeout(function (){
-                        //     requestNoteList()
-                        // },150);
+                        window.setTimeout(function (){
+                            requestNoteList()
+                        },500);
                     }
                 }
             });

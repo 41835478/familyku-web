@@ -9,7 +9,7 @@ define ([], function () {
 				'<a href="#"><div class="kong_btn">新建相册</div></a></div>',
             '{{each data as item }}',
             '<div class="xc_here">',
-            '<div class="xc_img xc_img_js" style="overflow: hidden;text-align: center;"><img class="" style="max-width: 100%;max-height:100%;"  src="{{item.cover}}"  /></div>',
+            '<div class="xc_img xc_img_js" data-id="{{item.id}}" style="overflow: hidden;text-align: center;"><img class="" style="max-width: 100%;max-height:100%;"  src="{{item.cover}}"  /></div>',
             '<div class="xc_bottom">',
             '<div class="xc_bot_name">',
             '{{item.title}}',
