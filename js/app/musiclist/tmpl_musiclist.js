@@ -4,7 +4,8 @@
 define ([], function () {
     return [
     '<div id="moban" class="gloab_box">',
-        '<header> <audio id="musicListAudio" style="display:none " width="0" height="0"></audio>',
+        //'<header> <audio id="musicListAudio" style="display:none " width="0" height="0"></audio>',
+        '<header>',
             '<ul>',
                 '{{each data as item}}',
                     '<li data-id="{{item.id}}" class="hot musiclist_header_js">{{item.catename}}</li>',

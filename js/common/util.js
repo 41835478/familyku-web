@@ -320,16 +320,56 @@ define(["app/baseFinal"], function (Final) {
         },
 
         musicPlay : function (id,url,loop){
+            //alert("create Audio auto append settimeout");
+            // var audio = new Audio();
+            // audio.src=url;
+            // audio.autoplay='autoplay';
+            // audio.loop=true;
+            // audio.play();
+            // document.body.appendChild(audio);
+            // window.setTimeout(function (){
+            //     audio.src=url;
+            //     audio.play();
+            // },1000)
+            // //检查音乐是否缓冲成功
+            // setTimeout(function()
+            // {
+            //     var timeRanges = audio.buffered;
+            //     var timeBuffered = timeRanges.end(timeRanges.length - 1);
+            //     var bufferPercent = timeBuffered /audio.duration;
+            //     alert('music:'+bufferPercent);
+            //
+            //     if(isNaN(bufferPercent) || bufferPercent == 0)
+            //     {
+            //         audio.src = url;
+            //         audio.play();
+            //     }
+            // },5000);
+            // return;
+            //alert(url);
             var target=$("#"+id);
+           // alert(target.length);
             if(target.length>0){
                 target.get(0).src=url;
                 target.get(0).loop=true;
+                target.onerror= function (){
+                    alert("error");
+                    window.setTimeout(function (){
+                        target.get(0).src=url;
+                        target.get(0).loop=true;
+                        target.get(0).play();
+                    },2000);
+                }
                 target.get(0).play();
+               // alert("调用了play方法");
+
             }
         },
         musicPause : function (id){
             var target=$("#"+id);
             if(target.length>0){
+                target.get(0).pause();
+                return;
                 if(target.get(0).paused){
                     target.get(0).play();
                 }else {

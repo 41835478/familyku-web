@@ -5,7 +5,7 @@ define ([], function () {
     return [
     '<div id="moban" class="gloab_box">',
         '<div class="moban_box">',
-            ' <audio id="tmpAudio" style="display:none " width="0" height="0"></audio>',
+            //' <audio id="tmpAudio" style="display:none " width="0" height="0"></audio>',
             '<div id="container">',
 
             '</div>',

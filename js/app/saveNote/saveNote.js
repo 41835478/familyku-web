@@ -8,6 +8,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         tmpl_saveNote: 'app/saveNote/tmpl_saveNote'
     }
     var init=function (){
+        Util.musicPause("tmpAudio");
         Util.getDefaultAddress();
         initEvent();
         checkuser();

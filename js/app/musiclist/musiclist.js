@@ -2,7 +2,7 @@
  * Created by 123 on 2016/11/15.
  */
 'use strict';
-define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function (Render, URL, BaseCookie, Final) {
+define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/util'], function (Render, URL, BaseCookie, Final,Util) {
     var token =localStorage.getItem("token") || "";
     var TMPL = {
         tmpl_musiclist: 'app/musiclist/tmpl_musiclist',
@@ -37,14 +37,17 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
     }
     var auditionFn = function (){
         if($(this).hasClass("icon-zanting")){
-            $("#musicListAudio").get(0).pause();
+            Util.musicPause("tmpAudio");
+            //$("#musicListAudio").get(0).pause();
             $(".audition_btn_js").removeClass("icon-zanting").addClass("icon-bofang");
         }else {
+            Util.musicPause("tmpAudio");
             var src=$(this).attr("data-src");
             $(".audition_btn_js").removeClass("icon-zanting").addClass("icon-bofang")
             $(this).removeClass("icon-bofang").addClass("icon-zanting");
-            $("#musicListAudio").get(0).src=src;
-            $("#musicListAudio").get(0).play();
+            Util.musicPlay("tmpAudio",src,true);
+            // $("#musicListAudio").get(0).src=src;
+            // $("#musicListAudio").get(0).play();
         }
     }
     var musiclistItemClickFn = function (){
