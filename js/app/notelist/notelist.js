@@ -115,7 +115,6 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
                     var height=$(".xc_img_js").height();
                     var imgWidth=$(this).get(0).naturalWidth;
                     var imgHeight=$(this).get(0).naturalHeight;
-                    debugger;
                     if(width/height>imgWidth/imgHeight){
                         $(this).css("height",height);
                     }else{

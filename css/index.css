@@ -57,13 +57,15 @@ header {
 	position: relative;
 }
 header>ul {
-	margin-left: 3%;
-	position: absolute;
-	width: 200%;
-	height: .88rem;
-	line-height: .88rem;
-	left: 0;
-	top: 0;
+	    padding-left: 3%;
+    position: fixed;
+    width: 200%;
+    background: #fff;
+    height: .88rem;
+    line-height: .88rem;
+    left: 0;
+    top: 0;
+    z-index: 999;
 }
 header>ul>li {
 	float: left;
@@ -79,10 +81,13 @@ header>ul>.active {
 	color: #4abdcc;
 }
 .big_box {
-	font-size: .24rem;
-	clear: both;
-	/*padding-top: 1.18rem;*/
+	    font-size: .24rem;
+    clear: both;
+    /* padding-top: 1.18rem; */
+    overflow: hidden;
+    padding-bottom: .88rem;
 }
+#photo .photo_here:last-child { padding-bottom:.88rem;}
 .big_box>ul>li {
 	float: left;
 	width: 29.33%;
@@ -748,6 +753,8 @@ body {
 	font-size: .24rem;
 	overflow-y: scroll;
 }
+
+.modal-body>p { font-size: 20px;}
 .kongbai{
 	position: absolute;
 	width: 100%;
@@ -758,12 +765,14 @@ body {
 	color: #cccccc;
 	text-align: center;
 }
+#container>img:first-child { height: 100%;}
+.musiclist_box { padding-bottom: .88rem;}
 #oauthIframe {display: none;}
 .kongbai .icon_img { position: absolute; height: 2rem; top: 0; bottom: 0; left: 0; right: 0; margin: auto;}
 .kongbai .iconfont { font-size: 1.2rem; display: block;}
 .kongbai .kong_btn { position:absolute ; width: 92%; left: 4%; bottom: 4%; background: #4abdcc; color: #FFFFFF; height: .88rem; line-height: .88rem; text-align: center;}
 
-.main_container {width:100%;height:100%; margin: 0 auto; background-color:#f6f7f9;padding-bottom: .88rem;}
+.main_container {width:100%;height:100%; margin: 0 auto; background-color:#f6f7f9;}
 
 #cover{display:none;position:absolute;left:0;top:0;z-index:18888;background-color:#000000;opacity:0.7;width: 100%;height:100%;}
 #guide{display:none;position:absolute;right:18px;top:35px;z-index:19999;}
