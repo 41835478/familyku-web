@@ -44,7 +44,9 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal'], function
         $(document).off("click",".btn_delete_js").on("click",".btn_delete_js",deleteNoteFn);
         $(document).off("click","#noteDeleteSure").on("click","#noteDeleteSure",deleteNoteRequest);
         $(document).off("click",".xc_img_js").on("click",".xc_img_js",showShareFn);
-
+        $(document).off("click",".kong_btn").on("click",".kong_btn",function(){
+            window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
+        });
     };
     var showShareFn = function (){
        var id=$(this).attr("data-id");

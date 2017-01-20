@@ -23,7 +23,7 @@ define ([], function () {
             // '<a id="menu_save" class="menu_js" href="javaScript:;" data-router="saveNote"><span class="footer_d"><i class="iconfont icon-baocun"></i>保存</span></a>',
         '</div>',
         '<div id="thirdDiv" class="footer" style="display: none;">',
-            '<a  class="" href="javaScript:;" style="width:50%;" ><span class="footer_a"><i class="iconfont icon-cf-c07"></i>我也要创建</span></a>',
+            '<a  class="" href="http://www.familyku.com/static/guanzhu.html" style="width:50%;" ><span class="footer_a"><i class="iconfont icon-cf-c07"></i>我也要创建</span></a>',
             '<a  class="share_menu_js" href="javaScript:;" style="width:50%;" ><span class="footer_c"><i class="iconfont icon-xiangpian"></i>分享相册</span></a>',
         // '<a id="menu_save" class="menu_js" href="javaScript:;" data-router="saveNote"><span class="footer_d"><i class="iconfont icon-baocun"></i>保存</span></a>',
         '</div>',
