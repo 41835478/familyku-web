@@ -765,7 +765,7 @@ body {
 	color: #cccccc;
 	text-align: center;
 }
-#container>img:first-child { height: 100%;}
+#container>img:first-child { height: 100%; width: 100%;}
 .musiclist_box { padding-bottom: .88rem;}
 #oauthIframe {display: none;}
 .kongbai .icon_img { position: absolute; height: 2rem; top: 0; bottom: 0; left: 0; right: 0; margin: auto;}
