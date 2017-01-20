@@ -102,7 +102,10 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
             //var ShuYe = require();
             Util.clearTimerTmp();
             TMPLOBJ.init(data);
-            loadMusic(data);
+            window.setTimeout(function (){
+                loadMusic(data);
+            },1)
+
         })
     }
     return {

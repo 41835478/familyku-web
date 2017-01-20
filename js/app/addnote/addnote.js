@@ -2,7 +2,7 @@
  * Created by jxy on 16/11/26.
  */
 'use strict';
-define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ajaxfileupload'], function (Render, URL, BaseCookie, Final) {
+define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/util'], function (Render, URL, BaseCookie, Final,Util) {
     var token = localStorage.getItem("token") || "";
     var TMPL = {
         tmpl_addnote: 'app/addnote/tmpl_addnote'
@@ -15,6 +15,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/aj
     var maxsize = 100 * 1024;
 
     var init=function (){
+        Util.musicPause("tmpAudio");
         initEvent();
         requestPhotoList();
     };

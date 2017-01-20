@@ -24,15 +24,79 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
         $(document).off("click",".createAgain_js").on("click",".createAgain_js",createAgainFn);
         $(document).off("click",".showMyList_js").on("click",".showMyList_js",showMyListFn)
     }
+    var share_url = function (){
+        return window.location.href;
+    }
+    var share_img = function (){
+
+    }
+    var share_callback = function (){
+        //alert("share");
+    }
+    var initWxShare = function (data){
+        var title=data.diary.title || "我制作了一个精美小记，打开看看吧~~!";
+        var link=window.location.href;
+        var imgURL=data.images[0].img || null;
+        var desc='每一个精彩瞬间，我都想与你一同分享';
+
+        wx.onMenuShareAppMessage({
+            title   : title,
+            desc    : '每一个精彩瞬间，我都想与你一同分享',
+            link    : link,
+            imgUrl  : imgURL,
+            type    : 'link',
+            success: function () {
+                share_callback('message');
+            },
+            cancel: function () {
+            }
+        });
+        wx.onMenuShareTimeline({
+            title  : title,
+            link   : link,
+            imgUrl : imgURL,
+            success: function () {
+                share_callback('timeline');
+            },
+            cancel: function () {
+            }
+        });
+        wx.onMenuShareQQ({
+            title   : title || '音乐相册',
+            desc    : desc,
+            link    : link,
+            imgUrl  : imgURL,
+            type    : 'link',
+            success: function () {
+                share_callback('message');
+            },
+            cancel: function () {
+            }
+        });
+        wx.onMenuShareQZone({
+            title   : title || '音乐相册',
+            desc    : desc,
+            link    : link,
+            imgUrl  : imgURL,
+            type    : 'link',
+            success: function () {
+                share_callback('message');
+            },
+            cancel: function () {
+            }
+        });
+    }
     var clearLocalStorage = function (){
         localStorage.removeItem(Final.TMP_ID);
         localStorage.removeItem(Final.PIC_LIST);
     }
     var createAgainFn = function (){
         clearLocalStorage();
+        Util.musicPause("tmpAudio");
         window.location.href=window.location.href.split("#")[0]+"#preview/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
     }
     var showMyListFn = function (){
+        Util.musicPause("tmpAudio");
         window.location.href=window.location.href.split("#")[0]+"#notelist/"+(localStorage.getItem(Final.USER_ID) || -1)+"/"+localStorage.getItem("token");
     }
     var  showShareCover= function (){
@@ -90,6 +154,7 @@ define(['common/render', 'app/baseURL', 'baseCookie', 'app/baseFinal','common/ut
                if(response.code==Final.RESPONSE_STATUS.success){
                    var data=response.data;
                    if(data){
+                       initWxShare(data);
                        if(data.diary.userid == localStorage.getItem(Final.USER_ID)){
                            $("#mySelfDiv").show();
                            $("#thirdDiv").hide();

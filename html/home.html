@@ -12,6 +12,29 @@
     <!--<link type="text/css" rel="stylesheet" href="/template/01_tmp_shuye/css/shuye.css?ver=3" />-->
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_jbzrcvc365p9o1or.css" />
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js "></script>
+    <script type="text/javascript">
+       // alert("home 1")
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            //alert("test bridgeReady 22");
+            var a=document.getElementById("tmpAudio");
+            //alert(a);
+            if(a){
+               // alert("a play");
+                a.play();
+            }
+
+        }, false);
+        document.addEventListener('YixinJSBridgeReady', function() {
+           // alert("test bridgeReady 33");
+            var a=document.getElementById("tmpAudio");
+            //alert(a);
+            if(a){
+                // alert("a play");
+                a.play();
+            }
+        }, false);
+    </script>
     <script>
 
     var _speedMark = new Date();
@@ -58,6 +81,7 @@
 
 </head>
 <body>
+<audio id="tmpAudio" src="" autoplay style="display:none " width="0" height="0"></audio>
 <div id="main_container" class="main_container">
     <!--<div id="moban" class="gloab_box">-->
         <!--<div class="moban_box">-->
